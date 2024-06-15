@@ -13,7 +13,7 @@ export default function DesktopNav() {
           <div className="flex items-center gap-x-8">
             <input type="text" className="bg-black2 px-5 py-3 rounded-md" placeholder="Username" required />
             <input type="text" className="bg-black2 px-5 py-3 rounded-md" placeholder="Password" required />
-            <button className="flex items-center bg-blue px-6 py-3 rounded-md">
+            <button className="flex items-center bg-primary px-6 py-3 rounded-md">
               <span className="mr-1">
                 <CiLock />
               </span>

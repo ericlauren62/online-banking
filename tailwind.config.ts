@@ -11,7 +11,10 @@ const config: Config = {
       colors: {
         black: "#343838",
         black2: "#4e5252",
-        blue: "#0056b3",
+        primary: "#0056b3",
+      },
+      backgroundImage: {
+        heroBg: "url('/home-bg.jpeg')",
       },
     },
   },
