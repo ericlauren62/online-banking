@@ -15,6 +15,13 @@ const config: Config = {
       },
       backgroundImage: {
         heroBg: "url('/home-bg.jpeg')",
+        legal: "url('/icons-footer.webp')",
+      },
+      backgroundSize: {
+        full: "100%",
+      },
+      backgroundPosition: {
+        "right-30": "0 -30px",
       },
     },
   },

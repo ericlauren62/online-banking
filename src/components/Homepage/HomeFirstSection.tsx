@@ -5,7 +5,7 @@ export default function HomeFirstSection() {
   return (
     <section className="container flex my-20 gap-20 items-center">
       <div className="w-[65%] text-sm">
-        <span></span>
+        <span className="h-1 w-10 bg-primary block mb-3 rounded-lg"></span>
         <h2 className="text-3xl mb-5 font-medium">Texas-sized security.</h2>
         <div className="mb-12">
           <p>

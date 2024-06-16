@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container  text-white grid grid-cols-2 gap-x-32">
         <div className="bg-black px-8 min-w-[600px] flex flex-col justify-center">
           <h2 className="text-xs mb-1 rounded-xl">HORIZON BANK</h2>
-          <span className="h-1 w-10 bg-primary block mb-4"></span>
+          <span className="h-1 w-10 bg-primary block mb-3 rounded-lg"></span>
           <h1 className="mb-3 text-3xl">Born, Raised, and Invested in Texas.</h1>
           <p>
             {`We're`} from here. Since 1905, Horizon has been proud to work with local businesses across central Texas
