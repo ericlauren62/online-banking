@@ -22,7 +22,7 @@ export default function DesktopNav() {
           </div>
         </div>
       </section>
-      <nav className="container flex justify-between items-center py-6">
+      {/* <nav className="container flex justify-between items-center py-6">
         <ul className="flex gap-x-5">
           <li>Business</li>
           <li>Personal</li>
@@ -31,7 +31,7 @@ export default function DesktopNav() {
           <li>Contact Us</li>
         </ul>
         <div>info@horizon.com</div>
-      </nav>
+      </nav> */}
     </Fragment>
   );
 }

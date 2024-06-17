@@ -9,7 +9,7 @@ export default function AboutSecondSection() {
   return (
     <section className="container py-20">
       <h2 className="text-4xl font-bold mb-20">Our Values</h2>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-3 gap-x-10 gap-y-16">
         <div>
           <div className="mb-5">
             <Image src={integrity} alt="integrity" />

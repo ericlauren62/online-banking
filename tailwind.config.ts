@@ -12,9 +12,10 @@ const config: Config = {
         black: "#343838",
         black2: "#4e5252",
         primary: "#0056b3",
+        "primary-hover": "#002257",
       },
       backgroundImage: {
-        heroBg: "url('/home-bg.jpeg')",
+        heroBg: "url('/home-bg.jpg')",
         businessHeroBg: "url('/businessheroimg.jpeg')",
         personalHeroBg: "url('/personalHero.jpg')",
         aboutHeroBg: "url('/aboutHero.jpg')",

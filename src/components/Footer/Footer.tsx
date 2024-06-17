@@ -40,7 +40,7 @@ export default function Footer() {
           <h3 className="font-medium mb-3">INFORMATION</h3>
           <ul className="grid gap-y-1">
             <li>
-              <Link href="#">Business</Link>
+              <Link href="#">Accesibility Banking</Link>
             </li>
             <li>
               <Link href="#">Personal</Link>

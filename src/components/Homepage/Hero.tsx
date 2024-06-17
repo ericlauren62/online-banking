@@ -1,31 +1,99 @@
 import React from "react";
+import redSailImg from "/public/sail-red.svg";
+import Image from "next/image";
+import Link from "next/link";
 import { CiLock } from "react-icons/ci";
-
+import herobg from "/public/home-bg.jpg";
 export default function Hero() {
   return (
-    <section className="bg-heroBg min-h-[30rem] bg-center grid place-content-center">
-      <div className="container  text-white grid grid-cols-2 gap-x-32">
-        <div className="bg-black px-8 min-w-[600px] flex flex-col justify-center">
-          <h2 className="text-xs mb-1 rounded-xl">HORIZON BANK</h2>
-          <span className="h-1 w-10 bg-primary block mb-3 rounded-lg"></span>
-          <h1 className="mb-3 text-3xl">Born, Raised, and Invested in Texas.</h1>
-          <p>
-            {`We're`} from here. Since 1905, Horizon has been proud to work with local businesses across central Texas
-            and beyond.
-          </p>
+    // <section className="bg-heroBg min-h-[60vh] bg-no-repeat bg-center bg-contain pb-20">
+    //   <div className="container">
+    //     <div className="pt-12">
+    //       <div className="mb-6">
+    //         <Image src={redSailImg} alt="red sail" />
+    //       </div>
+    //       <h1 className="mb-4 text-5xl">A way to move forward</h1>
+    //       <p className="mb-6">You have goals. We can help you achieve them. Let’s get started.</p>
+
+    //       <div className="flex items-center gap-x-4">
+    //         <button className="text-white flex items-center font-medium border-2 border-primary bg-primary hover:bg-primary-hover px-10 py-3">
+    //           BANK WITH US
+    //         </button>
+    //         <button className="text-primary flex items-center font-medium border-2 border-primary hover:bg-primary-hover hover:text-white px-10 py-3">
+    //           LEARN MORE
+    //         </button>
+    //       </div>
+    //     </div>
+    //     <div className="max-w-[400px] bg-white ml-auto py-8  px-8">
+    //       <div className="w-[60%]">
+    //         <h2 className="font-bold text-lg">Log in to banking services</h2>
+    //       </div>
+    //       <form className="grid gap-y-3 w-full">
+    //         <div className="">
+    //           <label htmlFor="userid" className="block mb-2">
+    //             User ID
+    //           </label>
+    //           <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+    //         </div>
+    //         <div>
+    //           <label htmlFor="password" className="block mb-2">
+    //             Password
+    //           </label>
+    //           <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+    //         </div>
+    //         <button className="flex justify-center text-white items-center bg-primary py-3 w-full">
+    //           <span className="mr-1">
+    //             <CiLock />
+    //           </span>
+    //           Log In
+    //         </button>
+    //       </form>
+    //     </div>
+    //   </div>
+    // </section>
+
+    <section className="relative h-[80vh]">
+      <Image src={herobg} alt="hero background" fill />
+      <div className="container z-10 text-black relative pt-10 grid grid-cols-2">
+        <div className="pt-12">
+          <div className="mb-6">
+            <Image src={redSailImg} alt="red sail" />
+          </div>
+          <h1 className="mb-4 text-5xl">A way to move forward</h1>
+          <p className="mb-6">You have goals. We can help you achieve them. Let’s get started.</p>
+          <div className="flex items-center gap-x-4">
+            <button className="text-white flex items-center font-medium border-2 border-primary bg-primary hover:bg-primary-hover px-10 py-3">
+              BANK WITH US
+            </button>
+            <button className="text-primary flex items-center font-medium border-2 border-primary hover:bg-primary-hover hover:text-white px-10 py-3">
+              LEARN MORE
+            </button>
+          </div>
         </div>
-        <div className=" bg-white py-8 px-10 text-black max-w-[400px] rounded-lg ml-auto">
-          <h2 className="text-primary text-2xl mb-5">Online Banking Login</h2>
-          <div>
-            <input type="text" className="border border-black2 w-full p-3 mb-3 rounded-md" placeholder="Username" />
-            <input type="text" className="border border-black2 w-full p-3 mb-5 rounded-md" placeholder="Password" />
-            <button className="text-white flex items-center bg-primary px-6 py-3 rounded-md">
+        <div className="max-w-[450px] bg-white ml-auto py-8 px-8 mt-40">
+          <div className="mb-5">
+            <h2 className="font-bold text-lg">Log in to banking services</h2>
+          </div>
+          <form className="grid gap-y-3 w-full">
+            <div className="">
+              <label htmlFor="userid" className="block mb-2">
+                User ID
+              </label>
+              <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+            </div>
+            <div>
+              <label htmlFor="password" className="block mb-2">
+                Password
+              </label>
+              <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+            </div>
+            <button className="flex justify-center text-white items-center bg-primary py-3 w-full">
               <span className="mr-1">
                 <CiLock />
               </span>
               Log In
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>
