@@ -17,6 +17,7 @@ const config: Config = {
         heroBg: "url('/home-bg.jpeg')",
         businessHeroBg: "url('/businessheroimg.jpeg')",
         personalHeroBg: "url('/personalHero.jpg')",
+        aboutHeroBg: "url('/aboutHero.jpg')",
         legal: "url('/icons-footer.webp')",
       },
       backgroundSize: {
