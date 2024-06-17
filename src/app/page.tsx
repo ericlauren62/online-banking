@@ -1,3 +1,4 @@
+import Featured from "@/components/Homepage/Featured";
 import Hero from "@/components/Homepage/Hero";
 import HomeFirstSection from "@/components/Homepage/HomeFirstSection";
 import HomeSecondSection from "@/components/Homepage/HomeSecondSection";
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <Fragment>
       <Hero />
+      <Featured />
       <HomeFirstSection />
       <HomeSecondSection />
       <HomeThirdSection />
