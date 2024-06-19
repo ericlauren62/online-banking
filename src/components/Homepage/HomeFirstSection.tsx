@@ -3,29 +3,19 @@ import HomeFirstSectionImg from "/public/digitalbank.jpg";
 
 export default function HomeFirstSection() {
   return (
-    <section className="container flex my-20 gap-20 items-center">
-      <div className="w-[65%] text-sm">
-        <span className="h-1 w-10 bg-primary block mb-3 rounded-lg"></span>
+    <section className="container flex mt-10 mb-20 gap-20 items-center">
+      <div className="w-[65%]">
         <h2 className="text-3xl mb-5 font-medium">Texas-sized security.</h2>
-        <div className="mb-12">
-          <p>
-            Your information’s security is our top concern. That’s why we invest in the latest technology to ensure your
-            data is secure and you have ultimate peace of mind.
-          </p>
-        </div>
+        <p className="mb-12">
+          Your information’s security is our top concern. That’s why we invest in the latest technology to ensure your
+          data is secure and you have ultimate peace of mind.
+        </p>
 
         <div>
           <h3 className="text-xl mb-10">Our security features include:</h3>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-8">
             <div>
-              <h4 className="font-medium mb-3 text-base text-primary">Fraud software analytics</h4>
-              <p>
-                We use sophisticated software that reviews user behavior and transaction risks to help proactively
-                identify and stop suspicious activity.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-medium mb-3 text-base text-primary">Positive Pay</h4>
+              <h4 className="font-medium mb-3 text-lg text-primary">Positive Pay</h4>
               <p>
                 This optional service, designed for customers who issue many checks, creates a list of approved payments
                 that is used to compare and verify each item presented for payment.
@@ -40,7 +30,7 @@ export default function HomeFirstSection() {
           </div>
         </div>
       </div>
-      <div className="w-[30%] ml-auto">
+      <div className="w-[40%] ml-auto">
         <Image src={HomeFirstSectionImg} alt="security" />
       </div>
     </section>

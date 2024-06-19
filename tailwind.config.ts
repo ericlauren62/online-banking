@@ -13,6 +13,9 @@ const config: Config = {
         black2: "#4e5252",
         primary: "#0056b3",
         "primary-hover": "#002257",
+        secondary: "#00043a",
+        "secondary-hover": "#01042f",
+        gray: "#f5f5f7",
       },
       backgroundImage: {
         heroBg: "url('/home-bg.jpg')",

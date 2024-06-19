@@ -1,29 +1,32 @@
-export default function HomeSecondSection() {
+import React from "react";
+import HomeThirdSectionCard from "./HomeThirdSectionCard";
+
+export default function HomeThirdSection() {
   return (
-    <section className="py-20 bg-gray-200">
-      <div className="container grid grid-cols-3 gap-x-20">
-        <div>
-          <h2 className="font-medium text-xl text-primary mb-5">Howdy, partner.</h2>
-          <p>
-            Banking is a business of people, not decimal points. That’s why we go way beyond a first-name basis to form
-            personal relationships. Every one of our bankers is committed to their customers’ needs, lives, and goals
-            for the long haul.
-          </p>
-        </div>
-        <div>
-          <h2 className="font-medium text-xl text-primary mb-5">We go the extra mile. But first, we pave the road.</h2>
-          <p>
-            From laying your financial foundation to building your business, you’d be hard-pressed to find another bank
-            that offers what we do.{" "}
-          </p>
-        </div>
-        <div>
-          <h2 className="font-medium text-xl text-primary mb-5">From Texas, for Texas.</h2>
-          <p>
-            Helping Texas businesses thrive is what we do. Our business checking accounts come with straightforward
-            terms and features. In other words, we speak fluent Texan.{" "}
-          </p>
-        </div>
+    <section className="container mt-20 mb-40">
+      <h2 className="text-4xl font-medium mb-10">Keeping you financially savvy</h2>
+
+      <div className="grid grid-cols-2 gap-10 items-center">
+        <HomeThirdSectionCard
+          title="Love and Money: 3 Things to Consider Before You Combine Your Finances"
+          description="To help you decide if combining finances is right for your relationship, consider these financial factors."
+          imgUrl="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-Family-Heart.svg"
+        />
+        <HomeThirdSectionCard
+          title="Retirement Confidence Quiz"
+          description="Answer a few questions to find out how ready you are for retirement. No matter your situation, our advisors are here to help."
+          imgUrl="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-RetirementQuiz.svg"
+        />
+        <HomeThirdSectionCard
+          title="Subscription for Jerry Laurain’s Market News and Views"
+          description="Soak up market insights from Jerry Laurain, First Horizon Advisor’s Chief Investment Officer with over 30 years of industry experience."
+          imgUrl="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-Journalist-Contacts.svg"
+        />
+        <HomeThirdSectionCard
+          title="Fraud Protection Tips"
+          description="Fraud is on the rise, but you can keep scammers at bay and safeguard your financial life with these security tips."
+          imgUrl="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-Fraud-and-Security.svg"
+        />
       </div>
     </section>
   );

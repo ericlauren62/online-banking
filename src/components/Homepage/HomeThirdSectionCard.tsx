@@ -1,20 +1,29 @@
-import { FaClock } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
+import { IoChevronForwardOutline } from "react-icons/io5";
 
-export default function HomeThirdSectionCard() {
+interface HomeThirdSectionCardProps {
+  title: string;
+  description: string;
+  imgUrl: string;
+}
+
+export default function HomeThirdSectionCard({ title, description, imgUrl }: HomeThirdSectionCardProps) {
   return (
-    <div className="bg-gray-100 p-8">
-      <div className="flex items-center justify-end gap-x-2 mb-5">
-        <span className="text-primary">
-          <FaClock />
-        </span>
-        Jun 10, 2024
-      </div>
+    <div className="bg-gray-100 p-12 flex gap-x-12 bg-white">
       <div>
-        <h2 className="font-medium text-lg mb-5">Juneteenth Holiday</h2>
-        <p>
-          All of our branches will be closed on Wednesday, June 19th in observance of Juneteenth. We will resume normal
-          hours Thursday, June 20.
-        </p>
+        <h2 className="font-medium text-lg mb-3 text-primary-hover">{title}</h2>
+        <p className="mb-8">{description}</p>
+
+        <Link href="#" className="flex items-center gap-x-4 font-medium tracking-wider">
+          READ MORE
+          <span className="block bg-primary text-white rounded-[100%] p-1">
+            <IoChevronForwardOutline />
+          </span>
+        </Link>
+      </div>
+      <div className="w-[30%] mt-auto">
+        <Image src={imgUrl} alt="love and money" height={70} width={70} />
       </div>
     </div>
   );

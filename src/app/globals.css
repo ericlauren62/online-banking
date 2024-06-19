@@ -6,12 +6,17 @@
 
 @layer base{
   body{
-    font-family: poppins;
+    font-family: "poppins";
+    background-color: #F5F5F7;
   }
 }
 
 @layer components{
   .container{
     @apply px-6 max-w-[1350px] mx-auto;
+  }
+
+  .card:hover .icon{
+    filter: brightness(0);
   }
 }
