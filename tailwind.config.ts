@@ -20,7 +20,7 @@ const config: Config = {
       backgroundImage: {
         heroBg: "url('/home-bg.jpg')",
         businessHeroBg: "url('/businessheroimg.jpeg')",
-        personalHeroBg: "url('/personalHero.jpg')",
+        personalHeroBg: "url('/personal-hero.jpg')",
         aboutHeroBg: "url('/aboutHero.jpg')",
         legal: "url('/icons-footer.webp')",
       },

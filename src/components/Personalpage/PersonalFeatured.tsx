@@ -1,15 +1,15 @@
 import Image from "next/image";
-import featureImg1 from "/public/Featured-home1.jpg";
-import featureImg2 from "/public/Featured-home2.jpg";
-import featureImg3 from "/public/Featured-home3.jpg";
+import featureImg1 from "/public/personalfeatured1.jpg";
+import featureImg2 from "/public/personalfeatured2.jpg";
+import featureImg3 from "/public/personalfeatured3.jpg";
 import Link from "next/link";
 
-export default function Featured() {
+export default function PersonalFeatured() {
   return (
     <section className="py-20">
       <div className="mb-32 container">
         <h3 className="text-sm font-medium mb-2">FEATURED</h3>
-        <h2 className="font-medium text-4xl">Banking suggestions</h2>
+        <h2 className="font-medium text-4xl">Personal Banking suggestions</h2>
       </div>
 
       <div className="bg-primary-hover text-white pb-20">
@@ -22,10 +22,10 @@ export default function Featured() {
                 className="max-h-full h-[32.1875rem] object-cover -mt-20"
               />
             </div>
-            <h4 className="mb-4 font-medium text-xl">Personal</h4>
+            <h4 className="mb-4 font-medium text-xl">Take charge with checking</h4>
             <p className="mb-8">
-              From personalized checking accounts to simplified mortgage loans, we provide financial solutions for all
-              walks of life.
+              Whether you’re looking for a simple checking account or something with a little hustle, we’ve got the
+              right solution for you. Choose from three distinct options tailored to your specific needs.
             </p>
             <Link href="#">LEARN MORE</Link>
           </div>
@@ -37,10 +37,10 @@ export default function Featured() {
                 className="max-h-full h-[32.1875rem] object-cover -mt-20"
               />
             </div>
-            <h4 className="mb-4 font-medium text-xl">Small Business</h4>
+            <h4 className="mb-4 font-medium text-xl">Make your move with a mortgage</h4>
             <p className="mb-8">
-              Whether you’re looking to maximize cash flow or pursue growth opportunities, we’re excited to take on your
-              business challenges together.
+              We make homeownership simple, speedy and affordable. With a variety of mortgage options, we’ve helped
+              thousands of people like you finance their dream homes.
             </p>
             <Link href="#">LEARN MORE</Link>
           </div>
@@ -52,12 +52,14 @@ export default function Featured() {
                 className="max-h-full h-[32.1875rem] object-cover -mt-20"
               />
             </div>
-            <h4 className="mb-4 font-medium text-xl">Commercial</h4>
+            <h4 className="mb-4 font-medium text-xl">Begin with a banker</h4>
             <p className="mb-8">
-              Bring on a true financial partner – our seasoned industry insiders have the tools and know-how to lift
-              your organization to new heights.
+              Have questions? We have answers – with a bunch of friendly bankers on standby to help with your personal
+              banking needs.
             </p>
-            <Link href="#">LEARN MORE</Link>
+            <Link href="#" className="block mt-auto">
+              CONTACT US
+            </Link>
           </div>
         </div>
       </div>

@@ -1,16 +1,23 @@
+import Image from "next/image";
+import personalHero from "/public/personal-hero.jpg";
+
 export default function PersonalHero() {
   return (
-    <section className="bg-personalHeroBg min-h-[30rem] bg-left grid place-content-center">
-      <div className="container  text-white grid grid-cols-2 gap-x-32">
-        <div className="bg-black px-8 py-10 min-w-[600px] flex flex-col justify-center">
-          <h2 className="text-xs mb-1 rounded-xl">PERSONAL BANKING</h2>
-          <span className="h-1 w-10 bg-primary block mb-3 rounded-lg"></span>
-          <h1 className="mb-3 text-3xl">Keep banking simple.</h1>
-          <p>
-            Nobody likes complications. That’s why we offer easy-to-understand account options, individual service, and
-            a full set of features to help you handle your finances and take care of business.
-          </p>
-        </div>
+    <section className="container grid grid-cols-2 gap-x-10 items-center">
+      <div>
+        <h1 className="text-5xl leading-tight mb-5">
+          Banking that builds <br /> opportunity – yours.
+        </h1>
+        <p className="mb-5 text-lg max-w-[600px]">
+          From personalized checking accounts to simplified mortgage loans, we provide financial solutions for every way
+          you want to move forward.
+        </p>
+        <button className="text-white flex items-center font-medium border-2 border-primary bg-primary hover:bg-primary-hover px-10 py-3">
+          BANK WITH US
+        </button>
+      </div>
+      <div className="min-h-[85vh] bg-personalHeroBg bg-center bg-no-repeat bg-cover border border-black ">
+        {/* <Image src={personalHero} alt="personal image" /> */}
       </div>
     </section>
   );
