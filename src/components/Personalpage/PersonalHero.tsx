@@ -1,6 +1,3 @@
-import Image from "next/image";
-import personalHero from "/public/personal-hero.jpg";
-
 export default function PersonalHero() {
   return (
     <section className="container grid grid-cols-2 gap-x-10 items-center">
