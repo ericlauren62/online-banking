@@ -1,7 +1,7 @@
 import PersonalFeatured from "@/components/Personalpage/PersonalFeatured";
-import PersonalFirstSection from "@/components/Personalpage/PersonalFirstSection";
 import PersonalSecondSection from "@/components/Personalpage/PersonalSecondSection";
 import Hero from "@/components/Personalpage/PersonalHero";
+import PersonalThirdSection from "@/components/Personalpage/PersonalThirdSection";
 
 export default function Personal() {
   return (
@@ -9,7 +9,7 @@ export default function Personal() {
       <Hero />
       <PersonalFeatured />
       <PersonalSecondSection />
-      <PersonalFirstSection />
+      <PersonalThirdSection />
     </>
   );
 }
