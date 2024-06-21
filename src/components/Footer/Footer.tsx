@@ -43,6 +43,9 @@ export default function Footer() {
             <h3 className="font-medium mb-3">PRODUCT & SERVICES</h3>
             <ul className="grid gap-y-1 border-l border-red-500 pl-5">
               <li>
+                <Link href="/depositsolution">Deposit Solution</Link>
+              </li>
+              <li>
                 <Link href="#">Personal Banking</Link>
               </li>
               <li>

@@ -24,6 +24,8 @@ const config: Config = {
         aboutHeroBg: "url('/aboutHero.jpg')",
         commercialHeroBg: "url('/commercialhero.jpg')",
         wealthHeroBg: "url(/wealth-hero.jpg)",
+        depositSolutionHeroBg: "url(/DepositSolutionsHero.jpg)",
+        depositSolutionSection2: "url('/DepositSolution2.jpg')",
         legal: "url('/icons-footer.webp')",
       },
       backgroundSize: {
