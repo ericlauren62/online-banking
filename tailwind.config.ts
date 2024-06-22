@@ -28,6 +28,7 @@ const config: Config = {
         depositSolutionHeroBg: "url(/DepositSolutionsHero.jpg)",
         depositSolutionSection2: "url('/DepositSolution2.jpg')",
         checkingHero: "url('/checkinghero.jpg')",
+        savingsHero: "url('/savingshero.jpg')",
         legal: "url('/icons-footer.webp')",
       },
       backgroundSize: {
