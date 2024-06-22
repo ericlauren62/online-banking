@@ -16,6 +16,7 @@ const config: Config = {
         secondary: "#00043a",
         "secondary-hover": "#01042f",
         gray: "#f5f5f7",
+        gray2: "#d0d0d0",
       },
       backgroundImage: {
         heroBg: "url('/home-bg.jpg')",
