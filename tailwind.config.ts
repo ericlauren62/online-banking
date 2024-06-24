@@ -33,6 +33,8 @@ const config: Config = {
         creditCardImg2: "url('/creditcardImg.jpg')",
         borrowingHero: "url('/borrowinghero.jpg')",
         borrowingImg2: "url('/borrowingimg2.jpg')",
+        digitalBankingHero: "url(/digitalbankinghero.jpg)",
+        digitalBankingImg2: "url(/digitalbankingImg3.jpg)",
         legal: "url('/icons-footer.webp')",
       },
       backgroundSize: {

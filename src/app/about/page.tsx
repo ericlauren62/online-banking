@@ -6,10 +6,11 @@ import AboutSecondSection from "@/components/About/AboutSecondSection";
 import AboutSevenSection from "@/components/About/AboutSevenSection";
 import AboutSixSection from "@/components/About/AboutSixSection";
 import AboutThirdSection from "@/components/About/AboutThirdSection";
+import MainLayout from "@/components/layouts/MainLayout";
 
 export default function About() {
   return (
-    <>
+    <MainLayout>
       <AboutHero />
       <AboutFirstSection />
       <AboutSecondSection />
@@ -18,6 +19,6 @@ export default function About() {
       <AboutFifthSection />
       <AboutSixSection />
       <AboutSevenSection />
-    </>
+    </MainLayout>
   );
 }

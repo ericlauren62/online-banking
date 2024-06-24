@@ -5,10 +5,11 @@ import WealthHero from "@/components/Wealth/WealthHero";
 import WealthSecondSection from "@/components/Wealth/WealthSecondSection";
 import WealthServices from "@/components/Wealth/WealthServices";
 import WealthThirdSection from "@/components/Wealth/WealthThirdSection";
+import MainLayout from "@/components/layouts/MainLayout";
 
 export default function Wealth() {
   return (
-    <>
+    <MainLayout>
       <WealthHero />
       <WealthServices />
       <WealthFirstSection />
@@ -16,6 +17,6 @@ export default function Wealth() {
       <WealthThirdSection />
       <WealthFourthSection />
       <WealthFifthSection />
-    </>
+    </MainLayout>
   );
 }
