@@ -6,7 +6,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 export default function DesktopNav() {
   return (
     <Fragment>
-      <section className="">
+      <section className="hidden xl:block">
         <div className=" bg-gray">
           <div className=" container py-3 flex justify-between text-primary-hover">
             <div className="text-primary flex items-center text-sm gap-x-3">

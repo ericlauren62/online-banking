@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function HomeForthSection() {
   return (
-    <section className="container my-20">
+    <section className="container my-10 xl:my-20">
       <h2 className="mb-20 text-3xl font-medium">Lets Find {"What's"} Right For You</h2>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid xl:grid-cols-2 gap-10">
         <HomeForthSectionCard
           title="Personal"
           imgUrl="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-Check-and-pen.svg"

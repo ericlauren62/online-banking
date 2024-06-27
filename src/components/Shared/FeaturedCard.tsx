@@ -11,7 +11,7 @@ interface FeaturedCardProps {
 
 export default function FeaturedCard({ img, title, description }: FeaturedCardProps) {
   return (
-    <div className="flex flex-col justify-between -mt-20">
+    <div className="flex flex-col justify-between xl:-mt-20">
       <div className="mb-5">
         <Image src={img} alt="featured 1 image" className="max-h-full h-[32.1875rem] object-cover" />
       </div>

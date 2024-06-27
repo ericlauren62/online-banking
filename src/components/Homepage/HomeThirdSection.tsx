@@ -4,12 +4,12 @@ import Image from "next/image";
 
 export default function HomeThirdSection() {
   return (
-    <section className="mt-20 mb-44 bg-primary-hover">
-      <div className="container grid grid-cols-2">
-        <div className="-mt-10 -mb-20">
+    <section className="py-20 xl:py-0 mt-20 mb-44 bg-primary-hover">
+      <div className="container grid xl:grid-cols-2">
+        <div className="mb-20 xl:-mt-10 xl:-mb-20">
           <Image src={img1} alt="a man holding a woman" />
         </div>
-        <div className="text-white my-auto px-24">
+        <div className="text-white my-auto xl:px-24">
           <h2 className="text-3xl mb-5">
             Where there’s a <br /> need, there’s a way.
           </h2>

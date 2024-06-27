@@ -17,6 +17,7 @@ const config: Config = {
         "secondary-hover": "#01042f",
         gray: "#f5f5f7",
         gray2: "#d0d0d0",
+        blue: "#0150B5",
       },
       backgroundImage: {
         heroBg: "url('/home-bg.jpg')",
@@ -36,7 +37,9 @@ const config: Config = {
         digitalBankingHero: "url(/digitalbankinghero.jpg)",
         digitalBankingImg2: "url(/digitalbankingImg3.jpg)",
         legal: "url('/icons-footer.webp')",
+        gradient: "linear-gradient(transparent 5%,hsla(0,0%,100%,.85) 28%,hsla(0,0%,100%,.85) 69%)",
       },
+
       backgroundSize: {
         full: "100%",
       },

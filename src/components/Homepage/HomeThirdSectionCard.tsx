@@ -10,7 +10,7 @@ interface HomeThirdSectionCardProps {
 
 export default function HomeThirdSectionCard({ title, description, imgUrl }: HomeThirdSectionCardProps) {
   return (
-    <div className="bg-gray-100 p-12 flex gap-x-12 bg-white">
+    <div className="bg-gray-100 p-12 flex flex-col-reverse xl:flex-row gap-x-12 bg-white">
       <div>
         <h2 className="font-medium text-lg mb-3 text-primary-hover">{title}</h2>
         <p className="mb-8">{description}</p>
@@ -22,7 +22,7 @@ export default function HomeThirdSectionCard({ title, description, imgUrl }: Hom
           </span>
         </Link>
       </div>
-      <div className="w-[30%] mt-auto">
+      <div className="w-[30%] mt-auto mb-10 xl:mb-0">
         <Image src={imgUrl} alt="love and money" height={70} width={70} />
       </div>
     </div>

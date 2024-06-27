@@ -16,13 +16,13 @@ export default function Footer() {
   return (
     <footer className=" text-white">
       <div className="bg-secondary pt-16 pb-10">
-        <div className="container grid grid-cols-4 gap-x-8 items-start mb-6">
-          <div className=" pr-8 mr-20">
+        <div className="container grid xl:grid-cols-4 gap-x-8 items-start mb-6">
+          <div className="mb-10 xl:mb-0 xl:pr-8 xl:mr-20">
             <Link href="/" className="font-bold mb-4 block">
               <Image src={footerLogo} alt="Logo" />
             </Link>
           </div>
-          <div className="">
+          <div className="mb-10 xl:mb-0">
             <h3 className="font-medium mb-3">ABOUT FIRST HORIZON</h3>
             <ul className="grid gap-y-1 border-l border-red-500 pl-5">
               <li>
@@ -39,7 +39,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="">
+          <div className="mb-10 xl:mb-0">
             <h3 className="font-medium mb-3">PRODUCT & SERVICES</h3>
             <ul className="grid gap-y-1 border-l border-red-500 pl-5">
               <li>
@@ -77,8 +77,8 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="container flex justify-between items-center mb-10">
-          <div>
+        <div className="container xl:flex justify-between items-center mb-10">
+          <div className="mb-10 xl:mb-0">
             <h3 className="font-medium mb-3 text-sm">SOCIAL</h3>
             <ul className="flex items-center gap-x-3">
               <li className="border p-2 rounded-[100%]">
@@ -116,7 +116,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <ul className="container flex items-center justify-between text-xs font-medium">
+        <ul className="container flex flex-col gap-y-5 xl:gap-y-0 xl:flex-row xl:items-center justify-between text-xs font-medium">
           <li>
             <Link href="#">FRAUD & SECURITY</Link>
           </li>
@@ -139,7 +139,7 @@ export default function Footer() {
       </div>
 
       <div className="bg-secondary-hover py-16">
-        <div className="container grid grid-cols-2 gap-x-8 text-xs">
+        <div className="container grid xl:grid-cols-2 gap-x-8 text-xs">
           <div>
             <p className="text-sm border-l-4 border- pl-7">
               Insurance Products, Investments & Annuities: Not A Deposit, Not Guaranteed By The Bank Or Its Affiliates,

@@ -4,9 +4,9 @@ import HomeThirdSectionCard from "./HomeThirdSectionCard";
 export default function HomeThirdSection() {
   return (
     <section className="container mt-20 mb-40">
-      <h2 className="text-4xl font-medium mb-10">Keeping you financially savvy</h2>
+      <h2 className="text-2xl text-center xl:text-left xl:text-4xl font-medium mb-10">Keeping you financially savvy</h2>
 
-      <div className="grid grid-cols-2 gap-10 items-center">
+      <div className="grid xl:grid-cols-2 gap-y-10 xl:gap-x-10 items-center">
         <HomeThirdSectionCard
           title="Love and Money: 3 Things to Consider Before You Combine Your Finances"
           description="To help you decide if combining finances is right for your relationship, consider these financial factors."

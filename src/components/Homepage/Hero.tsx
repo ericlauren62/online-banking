@@ -6,25 +6,25 @@ import { CiLock } from "react-icons/ci";
 import herobg from "/public/home-bg.jpg";
 export default function Hero() {
   return (
-    <section className="relative h-[80vh]">
-      <Image src={herobg} alt="hero background" fill />
-      <div className="container z-10 text-black relative pt-10 grid grid-cols-2">
+    <section className="relative h-[70vh] xl:h-[80vh]">
+      <Image src={herobg} alt="hero background" fill className="object-cover object-bottom" />
+      <div className="container z-10 text-stone-950 relative pt-10 grid xl:grid-cols-2 ">
         <div className="pt-12">
           <div className="mb-6">
-            <Image src={redSailImg} alt="red sail" className="object-cover object-center" />
+            <Image src={redSailImg} alt="red sail" className="xl:object-cover xl:object-center" />
           </div>
-          <h1 className="mb-4 text-5xl">A way to move forward</h1>
+          <h1 className="mb-4 text-4xl xl:text-5xl">A way to move forward</h1>
           <p className="mb-6">You have goals. We can help you achieve them. Let’s get started.</p>
-          <div className="flex items-center gap-x-4">
-            <button className="text-white flex items-center font-medium border-2 border-primary bg-primary hover:bg-primary-hover px-10 py-3">
+          <div className="xl:flex items-center gap-x-4 w-full">
+            <button className="w-full xl:w-[250px] mb-5 xl:mb-0 text-white flex items-center justify-center font-medium border-2 border-primary bg-primary hover:bg-primary-hover px-10 py-3">
               BANK WITH US
             </button>
-            <button className="text-primary flex items-center font-medium border-2 border-primary hover:bg-primary-hover hover:text-white px-10 py-3">
+            <button className="w-full xl:w-[250px] text-primary flex items-center justify-center font-medium border-2 border-primary hover:bg-primary-hover hover:text-white px-10 py-3">
               LEARN MORE
             </button>
           </div>
         </div>
-        <div className="max-w-[450px] bg-white ml-auto py-8 px-8 mt-40">
+        <div className="hidden xl:block max-w-[450px] bg-white ml-auto py-8 px-8 mt-40">
           <div className="mb-5">
             <h2 className="font-bold text-lg">Log in to banking services</h2>
           </div>
