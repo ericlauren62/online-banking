@@ -23,7 +23,7 @@ export default function Card({ title, description, imgUrl }: CardProps) {
         </Link>
       </div>
       <div className="w-[30%] mt-auto mb-10 xl:mb-0">
-        <Image src={imgUrl} alt="love and money" height={70} width={70} />
+        <Image src={imgUrl} alt="love and money" height={50} width={50} />
       </div>
     </div>
   );

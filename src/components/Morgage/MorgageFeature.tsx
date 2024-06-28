@@ -10,13 +10,13 @@ import FeaturedCard from "../Shared/FeaturedCard";
 export default function MorgageFeature() {
   return (
     <section className="py-20">
-      <div className="mb-32 container">
+      <div className="mb-14 xl:mb-32 container">
         <h3 className="text-sm font-medium mb-2">FEATURED</h3>
-        <h2 className="font-medium text-4xl">Mortgage Loan Options</h2>
+        <h2 className="font-medium text-2xl xl:text-4xl">Mortgage Loan Options</h2>
       </div>
 
-      <div className="bg-secondary text-white pb-20">
-        <div className="container grid grid-cols-3 gap-x-10">
+      <div className="bg-secondary text-white py-20">
+        <div className="container grid gap-y-10 xl:gap-y-0 xl:grid-cols-3 xl:gap-x-10">
           <FeaturedCard
             img={featureImg1}
             title="Buy a home"
