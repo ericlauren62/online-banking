@@ -24,6 +24,7 @@ const config: Config = {
         businessHeroBg: "url('/businessheroimg.jpeg')",
         personalHeroBg: "url('/personal-hero.jpg')",
         aboutHeroBg: "url('/abouthero.jpg')",
+        smallBusinessHero: "url('/herosmallbusiness.jpg')",
         commercialHeroBg: "url('/commercialhero.jpg')",
         wealthHeroBg: "url(/wealth-hero.jpg)",
         depositSolutionHeroBg: "url(/DepositSolutionsHero.jpg)",

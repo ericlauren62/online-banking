@@ -79,8 +79,8 @@ export default function SmallBusinessFAQ() {
     },
   ];
   return (
-    <section className="container py-20">
-      <h2 className="text-3xl font-medium">Small Business Banking FAQs.</h2>
+    <section className="container py-10 xl:py-20">
+      <h2 className="text-2xl xl:text-3xl font-medium">Small Business Banking FAQs.</h2>
       <Accordion accordionData={accordionData} />
     </section>
   );

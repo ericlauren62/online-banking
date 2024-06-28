@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HomeThirdSection() {
   return (
-    <section className="py-20 xl:py-0 mt-20 mb-44 bg-primary-hover">
+    <section className="py-20 xl:py-0 mt-20 mb-20 xl:mb-44 bg-primary-hover">
       <div className="container grid xl:grid-cols-2">
         <div className="mb-20 xl:-mt-10 xl:-mb-20">
           <Image src={img1} alt="a man holding a woman" />

@@ -1,9 +1,9 @@
 export default function SmallBusinessHero() {
   return (
-    <section className="container grid grid-cols-2 gap-x-10 items-center">
-      <div>
+    <section className="container py-10 xl:py-0 grid xl:grid-cols-2 xl:gap-x-10 items-center">
+      <div className="mb-10 xl:mb-0">
         <span className="text-xs font-medium text-primary mb-6 block">SMALL BUSINESS BANKING</span>
-        <h1 className="text-5xl leading-tight mb-5">
+        <h1 className="text-3xl xl:text-4xl leading-tight mb-5">
           Smart banking for <br /> small business.
         </h1>
         <p className="mb-5 text-lg max-w-[600px]">
@@ -14,7 +14,7 @@ export default function SmallBusinessHero() {
           FIND A BANKER
         </button>
       </div>
-      <div className="min-h-[85vh] bg-personalHeroBg bg-center bg-no-repeat bg-cover border border-black "></div>
+      <div className="min-h-[50vh] xl:min-h-[85vh] bg-smallBusinessHero bg-center bg-no-repeat bg-cover border border-black "></div>
     </section>
   );
 }
