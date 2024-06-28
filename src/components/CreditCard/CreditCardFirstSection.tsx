@@ -5,7 +5,7 @@ export default function CreditCardFirstSection() {
   return (
     <section className=" container bg-gray py-20">
       <h2 className="font-medium text-4xl mb-10 text-center">Visa® credit cards</h2>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid xl:grid-cols-2 gap-10">
         <CreditCardFirstSectionCard
           url="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-credit-card-outline.svg"
           title="Visa Signature"

@@ -22,7 +22,7 @@ export default function MobileNav() {
   };
 
   return (
-    <nav>
+    <nav className="xl:hidden">
       <div className="flex justify-between  items-center px-3 py-5 border-b border-gray2">
         <div onClick={toggleNav} className="text-2xl cursor-pointer">
           <RxHamburgerMenu />
