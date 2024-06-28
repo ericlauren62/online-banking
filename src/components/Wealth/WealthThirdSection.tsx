@@ -2,9 +2,9 @@ import Card from "../Shared/Card";
 
 export default function WealthThirdSection() {
   return (
-    <section className="container mt-20 mb-40">
-      <h2 className="text-4xl font-medium mb-10">Wealth management resources </h2>
-      <div className="grid grid-cols-2 gap-10 items-center">
+    <section className="container mt-20 xl:mb-40">
+      <h2 className="text-2xl xl:text-4xl font-medium mb-10">Wealth management resources </h2>
+      <div className="grid xl:grid-cols-2 gap-10 items-center">
         <Card
           title="Estate Planning"
           description="A trust that considers the dynamics within your family can best serve your heirs and alleviate their worries and workload."
