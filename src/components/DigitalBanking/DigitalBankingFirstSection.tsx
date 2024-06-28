@@ -3,8 +3,10 @@ import Card5 from "../Shared/Card5";
 export default function DigitalBankingFirstSection() {
   return (
     <section className=" bg-white py-20">
-      <h2 className="text-4xl mb-16 font-medium text-center">Digital and Mobile Banking Services</h2>
-      <div className="grid grid-cols-3 container bg-white">
+      <h2 className="text-2xl xl:text-4xl mb-10 xl:mb-16 font-medium xl:text-center text-left px-4 xl:px-0">
+        Digital and Mobile Banking Services
+      </h2>
+      <div className="grid xl:grid-cols-3 container bg-white">
         <Card5
           url="https://www.firsthorizon.com/-/media/Images/Icons/General/SVGs/FHBIcons/FHB-Cell-phone.svg"
           title="Digital and Mobile Banking"

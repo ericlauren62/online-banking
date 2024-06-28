@@ -23,22 +23,22 @@ export default function DesktopNav() {
           <div className="grid grid-cols-6 py-4 items-center container">
             <ul className="col-span-2 flex justify-between gap-x-8 items-center text-primary-hover">
               <li>
-                <Link href="#" className="leading-[1.125rem] block">
+                <Link href="/personal-banking" className="leading-[1.125rem] block">
                   Personal Banking
                 </Link>
               </li>
               <li>
-                <Link href="#" className="leading-[1.125rem] block">
+                <Link href="/small-business" className="leading-[1.125rem] block">
                   Small Business
                 </Link>
               </li>
               <li>
-                <Link href="" className="leading-[1.125rem] block">
+                <Link href="/commercial" className="leading-[1.125rem] block">
                   Commercial & Speciality
                 </Link>
               </li>
               <li>
-                <Link href="#" className="leading-[1.125rem] block">
+                <Link href="/wealth-management" className="leading-[1.125rem] block">
                   Wealth Management
                 </Link>
               </li>
@@ -162,7 +162,10 @@ export default function DesktopNav() {
                 </g>
               </svg>
             </Link>
-            <Link href="#" className="flex justify-center text-white items-center bg-primary py-3 w-[150px] ml-auto">
+            <Link
+              href="/login"
+              className="flex justify-center text-white items-center bg-primary py-3 w-[150px] ml-auto"
+            >
               <span className="mr-1">
                 <CiLock />
               </span>

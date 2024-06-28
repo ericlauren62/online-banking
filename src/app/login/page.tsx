@@ -7,22 +7,22 @@ import MainLayout from "@/components/layouts/MainLayout";
 export default function page() {
   return (
     <MainLayout>
-      <div className="grid grid-cols-2 max-w-[1440px] mx-auto ">
-        <div className="pl-32 pr-32 pt-20">
+      <div className="xl:grid xl:grid-cols-2 max-w-[1440px] mx-auto ">
+        <div className="px-4 xl:pl-32 xl:pr-32 pt-20 mb-20 xl:mb-0">
           <div className="mb-8 flex flex-col items-center justify-center">
             <div className="mb-5">
               <Image src={logo2} alt="logo" />
             </div>
             <h2 className="text-2xl">Log in to banking services</h2>
           </div>
-          <form className="grid gap-y-3 w-full">
+          <form className="xl:grid gap-y-3 w-full">
             <div className="">
               <label htmlFor="userid" className="block mb-2">
                 User ID
               </label>
               <input type="text" className="w-full border border-gray-400 py-2 px-4" />
             </div>
-            <div>
+            <div className="mb-5 xl:mb-0">
               <label htmlFor="password" className="block mb-2">
                 Password
               </label>
@@ -36,7 +36,7 @@ export default function page() {
             </button>
           </form>
         </div>
-        <Image src={loginImg} alt="login bgimage" />
+        <Image src={loginImg} alt="login bgimage" className="hidden xl:block" />
       </div>
     </MainLayout>
   );
