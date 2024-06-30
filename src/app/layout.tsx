@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
 import "react-responsive-modal/styles.css";
+import UserProvider from "@/context/UserContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <UserProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </UserProvider>
   );
 }
