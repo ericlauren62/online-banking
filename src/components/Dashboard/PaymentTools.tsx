@@ -4,8 +4,8 @@ import { LiaHandHoldingUsdSolid } from "react-icons/lia";
 
 export default function PaymentTools() {
   return (
-    <div className="w-[35%]">
-      <h2 className="mb-6">Pay/Transfer Tools</h2>
+    <div className="lg:w-[35%]">
+      <h2 className="mb-6 font-medium">Pay/Transfer Tools</h2>
       <div className="flex items-center gap-x-4 bg-blue text-white p-3 mb-4">
         <div className="text-3xl">
           <GoArrowSwitch />

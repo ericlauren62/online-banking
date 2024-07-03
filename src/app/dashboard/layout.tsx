@@ -6,14 +6,17 @@ import Image from "next/image";
 import { FaRegUserCircle } from "react-icons/fa";
 import { sessionStatus } from "@/utils/session";
 import { redirect } from "next/navigation";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useUserContext } from "@/context/UserContext";
 import { Toaster } from "react-hot-toast";
+import { ImUserPlus } from "react-icons/im";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { state } = useUserContext();
+
+  const [img, setImg] = useState("");
 
   useLayoutEffect(() => {
     const session = sessionStatus;
@@ -22,6 +25,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  useLayoutEffect(() => {
+    if (state?.profilepicture) {
+      setImg(state.profilepicture);
+    }
+  }, [state.profilepicture]);
+
   return (
     <>
       <Toaster position="top-right" />
@@ -29,22 +38,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-blue py-2">
         <div className="container">
           <nav className="flex justify-between items-center py-3">
-            <Link href="/app">
+            <Link href="/dashboard" className="w-[35%]">
               <Image src={Logo} alt="logo" />
             </Link>
-
-            <div className="text-white flex items-center gap-x-3">
-              <FaRegUserCircle />
-              <p className="">
-                {state?.firstname} {state?.lastname}
-              </p>
+            <div className="flex items-center gap-x-4">
+              <div className=" h-[50px] w-[50px] border border-black rounded-[100%] relative overflow-hidden cursor-pointer">
+                {img ? (
+                  <div>
+                    <div
+                      className="w-[50px] h-[50px] rounded-[100%] border"
+                      style={{
+                        backgroundImage: `url(${img})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    ></div>
+                  </div>
+                ) : (
+                  <div className="relative text-5xl flex items-center justify-center object-center object-contain bg-gray2 rounded-[100%] h-[100px] w-[100px]">
+                    <ImUserPlus />
+                  </div>
+                )}
+              </div>
+              <div className="text-white text-lg">
+                <p>
+                  {state?.firstname} {state?.lastname}
+                </p>
+              </div>
             </div>
           </nav>
         </div>
+
         {pathname === "/dashboard" && (
-          <div className="text-center text-white py-8">
-            <h1 className="text-4xl mb-3">Welcome back,</h1>
-            <p className="font-bold text-2xl">
+          <div className="text-center text-white py-10">
+            <h1 className="text-2xl lg:text-4xl mb-3">Welcome back,</h1>
+            <p className="font-bold text-xl lg:text-2xl">
               {state?.firstname} {state?.lastname}!
             </p>
           </div>

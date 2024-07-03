@@ -15,7 +15,7 @@ export default function AccountType() {
   }, [state?.accounts]);
 
   return (
-    <div className="w-[55%]">
+    <div className="mb-10 xl:mb-0 lg:w-[55%]">
       <h2 className="mb-6 px-6">First Horizon Deposit Accounts</h2>
       <div className="grid gap-y-5">
         {accounts?.map((account, id) => {
