@@ -6,6 +6,13 @@ export interface UserState {
   maritalstatus: string;
   password: string;
   uid: string;
+  accountNumber: string;
+  profilepicture: string;
+  ssn: string;
+  country: string;
+  state: string;
+  city: string;
+  address: string;
   accounts: Account[];
   transactions: [];
 }
@@ -27,6 +34,7 @@ export interface Transaction {
 export interface UserContextType {
   state: UserState;
   addTransaction: (payload: Transaction) => void;
+  updateProfilePicture: (imgurl: string) => void;
 }
 
 export interface ChildrenType {

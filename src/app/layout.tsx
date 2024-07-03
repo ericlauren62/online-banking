@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "react-responsive-modal/styles.css";
 import UserProvider from "@/context/UserContext";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",

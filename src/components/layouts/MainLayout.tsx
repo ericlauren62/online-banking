@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 export default function MainLayout({
   children,
@@ -25,6 +26,8 @@ export default function MainLayout({
 
   return (
     <html lang="en">
+      <Toaster position="top-right" />
+
       <body>
         <header>
           <Navbar />

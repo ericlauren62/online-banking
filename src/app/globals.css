@@ -10,10 +10,20 @@
     background-color: #F5F5F7;
   }
 
+  label{
+    @apply block
+  }
+
+  input{
+    @apply block w-full
+  }
+
   /* Example styles.css */
 .react-select-container {
   /* width: 200px;  */
 }
+
+
 
 
 

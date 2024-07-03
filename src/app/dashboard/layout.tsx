@@ -9,6 +9,7 @@ import { redirect } from "next/navigation";
 import { useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useUserContext } from "@/context/UserContext";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -23,6 +24,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <Toaster position="top-right" />
+
       <header className="bg-blue py-2">
         <div className="container">
           <nav className="flex justify-between items-center py-3">

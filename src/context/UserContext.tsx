@@ -14,6 +14,13 @@ const initialState: UserState = {
   maritalstatus: "",
   password: "",
   uid: "",
+  accountNumber: "",
+  profilepicture: "",
+  country: "",
+  ssn: "",
+  state: "",
+  city: "",
+  address: "",
   accounts: [],
   transactions: [],
 };
@@ -21,6 +28,7 @@ const initialState: UserState = {
 const UserContext = createContext<UserContextType>({
   state: initialState,
   addTransaction: () => null,
+  updateProfilePicture: () => null,
 });
 
 const userReducer = (state: UserState, action: any): any => {
@@ -36,6 +44,12 @@ const userReducer = (state: UserState, action: any): any => {
     }
     case "ADD_TRANSACTIONS": {
       return { ...state, transactions: [...state.transactions, action.payload] };
+    }
+    case "ADD_ACCOUNTNUMBER": {
+      return { ...state, accountNumber: action.payload };
+    }
+    case "UPDATE_PROFILE_PICTURE": {
+      return { ...state, profilePicture: action.payload };
     }
   }
 };
@@ -73,7 +87,6 @@ export default function UserProvider({ children }: ChildrenType) {
     const userDocSnap = await getDoc(userDocRef);
     if (userDocSnap.exists()) {
       const userData = userDocSnap.data();
-      // localStorage.setItem("transactions", JSON.stringify(userData.transactions));
       dispatch({ type: "GET_USER_TRANSACTIONS", payload: userData.transactions });
     }
   };
@@ -83,7 +96,6 @@ export default function UserProvider({ children }: ChildrenType) {
 
     if (userDocSnap.exists()) {
       const userData = userDocSnap.data();
-      // localStorage.setItem("accounts", JSON.stringify(userData.accounts));
       dispatch({ type: "GET_USER_ACCOUNTS", payload: userData.accounts });
     }
   };
@@ -100,7 +112,21 @@ export default function UserProvider({ children }: ChildrenType) {
     }
   };
 
-  return <UserContext.Provider value={{ state, addTransaction }}>{children}</UserContext.Provider>;
+  const updateProfilePicture = async (imgurl: string) => {
+    if (imgurl && state?.uid) {
+      try {
+        const profileRef = doc(db, "users", state?.accountNumber);
+        setDoc(profileRef, { profilepicture: imgurl }, { merge: true });
+        dispatch({ type: "UPDATE_PROFILE_PICTURE", payload: imgurl });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  return (
+    <UserContext.Provider value={{ state, addTransaction, updateProfilePicture }}>{children}</UserContext.Provider>
+  );
 }
 
 export function useUserContext() {
