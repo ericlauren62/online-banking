@@ -7,7 +7,6 @@ import { Modal } from "react-responsive-modal";
 import loader from "/public/loader.svg";
 import successImg from "/public/successImg.png";
 import Image from "next/image";
-import Link from "next/link";
 import { useUserContext } from "@/context/UserContext";
 import { Account, Transaction } from "@/types/user";
 import { capitalizeWords } from "@/lib/capitalizeWords";
@@ -43,6 +42,8 @@ export default function Transfer() {
     return { value: account.name, label: capitalizeWords(account.name), amount: account.amount };
   });
 
+  console.log(state);
+
   useEffect(() => {
     // Sort transactions by date in descending order (most recent first)
     if (state?.transactions) {
@@ -59,16 +60,16 @@ export default function Transfer() {
   }, [state?.transactions]);
 
   const onOpenModal = () => {
-    // if (
-    //   transferDetails.beneficiaryaccount.length < 8 ||
-    //   transferDetails.amount === "" ||
-    //   transferDetails.beneficiarybank === "" ||
-    //   transferDetails.beneficiaryname === "" ||
-    //   transferDetails.routingnumber.length < 9 ||
-    //   transferDetails.account === ""
-    // ) {
-    //   return;
-    // }
+    if (
+      transferDetails.beneficiaryaccount.length < 8 ||
+      transferDetails.amount === "" ||
+      transferDetails.beneficiarybank === "" ||
+      transferDetails.beneficiaryname === "" ||
+      transferDetails.routingnumber.length < 9 ||
+      transferDetails.account === ""
+    ) {
+      return;
+    }
 
     setOpen(true);
     setProcessing(false);
@@ -111,11 +112,11 @@ export default function Transfer() {
   };
 
   return (
-    <section className="container flex gap-x-10 py-10  my-10">
-      <div className="bg-white p-10 w-[60%]">
-        <h2 className="text-xl font-medium mb-20">Transfers Details</h2>
+    <section className="lg:container lg:flex lg:gap-x-10 lg:py-10  my-10">
+      <div className=" py-5 px-6 bg-white lg:p-10 lg:w-[60%] mb-10 lg:mb-0">
+        <h2 className="text-xl font-medium mb-10 xl:mb-20">Transfers Details</h2>
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 items-center gap-x-10 mb-8">
+          <div className="grid gap-y-10 lg:gap-y-0 lg:grid-cols-2 items-center xl:gap-x-10 mb-8">
             <div className="">
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">From*</label>
               <Select options={options} placeholder="Select An Account" onChange={handleChange} required />
@@ -132,7 +133,7 @@ export default function Transfer() {
               />
             </div>
           </div>
-          <div className="mb-8 flex gap-x-10">
+          <div className="mb-8 flex items-center flex-col gap-y-10 xl:gap-y-0 xl:flex-row xl:gap-x-10">
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Beneficiary Bank*
@@ -160,7 +161,7 @@ export default function Transfer() {
               />
             </div>
           </div>
-          <div className="flex items-center gap-x-10 mb-10">
+          <div className="flex items-center flex-col gap-y-10 xl:gap-y-0 xl:flex-row xl:gap-x-10 mb-10">
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Bank Routing Number*
@@ -303,7 +304,7 @@ export default function Transfer() {
           </Modal>
         </form>
       </div>
-      <div className="bg-white w-[40%] py-8 px-8 overflow-y-scroll">
+      <div className="bg-white lg:w-[40%] py-8 px-8 overflow-y-scroll">
         <h2 className="text-xl font-medium mb-8">Recent Transactions</h2>
         {transactions.map((transaction: Transaction, id) => {
           return (
