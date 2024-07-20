@@ -5,18 +5,25 @@ import Logo from "/public/footerLogo.svg";
 import Image from "next/image";
 import { FaRegUserCircle } from "react-icons/fa";
 import { sessionStatus } from "@/utils/session";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useLayoutEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useUserContext } from "@/context/UserContext";
 import { Toaster } from "react-hot-toast";
 import { ImUserPlus } from "react-icons/im";
+import { GoChevronDown } from "react-icons/go";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { IoIosLogOut } from "react-icons/io";
+import { auth } from "@/lib/firebase";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { state } = useUserContext();
 
   const [img, setImg] = useState("");
+  const [openNav, setOpenNav] = useState(false);
+
+  const router = useRouter();
 
   useLayoutEffect(() => {
     const session = sessionStatus;
@@ -31,10 +38,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
   }, [state.profilepicture]);
 
+  const handleClickOpenNav = () => {
+    setOpenNav(!openNav);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(); // Firebase sign out operation
+
+      // Clear local storage items
+      localStorage.removeItem("token");
+      localStorage.removeItem("digit");
+
+      // Redirect to login page
+      router.push("/login");
+    } catch (error) {
+      console.error("Error signing out:", error);
+      // Handle error (optional)
+    }
+  };
+
   return (
     <>
       <Toaster position="top-right" />
-
       <header className="bg-blue py-2">
         <div className="container">
           <nav className="flex justify-between items-center py-3">
@@ -55,15 +81,39 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     ></div>
                   </div>
                 ) : (
-                  <div className="relative text-5xl flex items-center justify-center object-center object-contain bg-gray2 rounded-[100%] h-[100px] w-[100px]">
-                    <ImUserPlus />
+                  <div>
+                    <div className="relative text-5xl flex items-center justify-center object-center object-contain bg-gray2 rounded-[100%] h-[100px] w-[100px]">
+                      <ImUserPlus />
+                    </div>
+                    <div>
+                      <GoChevronDown />
+                    </div>
                   </div>
                 )}
               </div>
-              <div className="text-white text-lg">
-                <p>
-                  {state?.firstname} {state?.lastname}
-                </p>
+              <div className="relative">
+                <div
+                  onClick={handleClickOpenNav}
+                  className="text-white cursor-pointer text-lg flex items-center gap-x-4"
+                >
+                  <p>
+                    {state?.firstname} {state?.lastname}
+                  </p>
+                  <div>
+                    {openNav && <FaChevronUp />}
+                    {!openNav && <FaChevronDown />}
+                  </div>
+                </div>
+                {openNav && (
+                  <div className="bg-white text-black absolute w-full right-0  px-4 py-4 top-10 rounded-md">
+                    <button onClick={handleLogout} className="flex items-center gap-x-3">
+                      Log out{" "}
+                      <span className="text-2xl">
+                        <IoIosLogOut />
+                      </span>
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </nav>

@@ -23,11 +23,11 @@ export default function Login() {
     const userDocRef = doc(db, "users", accountNumber);
     const userDocSnap = await getDoc(userDocRef);
     if (userDocSnap.exists()) {
+      const user = userDocSnap.data();
       const email = userDocSnap.data().email;
       const userSession = await signInWithEmailAndPassword(auth, email, password);
       localStorage.setItem("token", userSession.user.refreshToken);
       localStorage.setItem("digit", accountNumber);
-
       router.push("/dashboard");
     }
   };
@@ -55,7 +55,7 @@ export default function Login() {
               </label>
               <input type="text" name="password" className="w-full border border-gray-400 py-2 px-4" />
             </div>
-            <button className="flex justify-center text-white items-center bg-primary py-3 w-full">
+            <button type="submit" className="flex justify-center text-white items-center bg-primary py-3 w-full">
               <span className="mr-1">
                 <CiLock />
               </span>

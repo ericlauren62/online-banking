@@ -25,8 +25,10 @@ export default function MainLayout({
   }, []);
 
   return (
-    <html lang="en">
+    <>
+    
       <Toaster position="top-right" />
+    <html lang="en">
 
       <body>
         <header>
@@ -36,5 +38,6 @@ export default function MainLayout({
         <Footer />
       </body>
     </html>
+    </>
   );
 }

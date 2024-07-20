@@ -1,10 +1,53 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import redSailImg from "/public/sail-red.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { CiLock } from "react-icons/ci";
 import herobg from "/public/home-bg.jpg";
+import { FormEvent } from "react";
+import toast from "react-hot-toast";
+
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { redirect, useRouter } from "next/navigation";
+
 export default function Hero() {
+  const [formData, setFormData] = useState({ userid: "", password: "" });
+
+  const router = useRouter();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: e.target.value }));
+  };
+
+  const handleSubmitLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const userDocRef = doc(db, "users", formData.userid);
+    const userDocSnap = await getDoc(userDocRef);
+
+    if (userDocSnap.exists()) {
+      const user = userDocSnap.data();
+      const email = userDocSnap.data().email;
+
+      const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, formData.password), {
+        loading: "Verifying Credentials",
+        success: "Sign In Successfully, Welcome",
+        error: "Error when fetching",
+      });
+
+      localStorage.setItem("token", userSession?.user?.accessToken);
+      localStorage.setItem("digit", formData.userid);
+      router.push("/dashboard");
+      return;
+    }
+    toast.error("Invalid User Credentials");
+  };
+
   return (
     <section className="relative h-[70vh] xl:h-[80vh]">
       <Image src={herobg} alt="hero background" fill className="object-cover object-bottom" />
@@ -28,20 +71,34 @@ export default function Hero() {
           <div className="mb-5">
             <h2 className="font-bold text-lg">Log in to banking services</h2>
           </div>
-          <form className="grid gap-y-3 w-full">
+          <form onSubmit={handleSubmitLogin} className="grid gap-y-3 w-full">
             <div className="">
               <label htmlFor="userid" className="block mb-2">
                 User ID
               </label>
-              <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+              <input
+                type="text"
+                name="userid"
+                className="w-full border border-gray-400 py-2 px-4"
+                placeholder="User ID"
+                onChange={handleInputChange}
+                required
+              />
             </div>
             <div>
               <label htmlFor="password" className="block mb-2">
                 Password
               </label>
-              <input type="text" className="w-full border border-gray-400 py-2 px-4" />
+              <input
+                type="password"
+                name="password"
+                className="w-full border border-gray-400 py-2 px-4"
+                placeholder="Password"
+                onChange={handleInputChange}
+                required
+              />
             </div>
-            <button className="flex justify-center text-white items-center bg-primary py-3 w-full">
+            <button type="submit" className="flex justify-center text-white items-center bg-primary py-3 w-full">
               <span className="mr-1">
                 <CiLock />
               </span>
