@@ -64,48 +64,48 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="bg-blue py-2">
         <div className="container">
           <nav className="flex justify-between items-center py-3">
-            <Link href="/dashboard" className="w-[35%]">
+            <Link href="/dashboard" className="w-[30%] lg:w-[35%]">
               <Image src={Logo} alt="logo" />
             </Link>
-            <div className="flex items-center gap-x-4">
-              <div className=" h-[50px] w-[50px] border border-black rounded-[100%] relative overflow-hidden cursor-pointer">
-                {img ? (
-                  <div>
-                    <div
-                      className="w-[50px] h-[50px] rounded-[100%] border"
-                      style={{
-                        backgroundImage: `url(${img})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    ></div>
-                  </div>
-                ) : (
-                  <div>
-                    <div className="relative text-5xl flex items-center justify-center object-center object-contain bg-gray2 rounded-[100%] h-[100px] w-[100px]">
-                      <ImUserPlus />
-                    </div>
+            <div className="w-[45%] flex items-center gap-x-4">
+              <div>
+                <div className=" h-[50px] w-[50px] border border-black rounded-[100%] relative overflow-hidden cursor-pointer">
+                  {img ? (
                     <div>
-                      <GoChevronDown />
+                      <div
+                        className="w-[50px] h-[50px] rounded-[100%] border"
+                        style={{
+                          backgroundImage: `url(${img})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      ></div>
                     </div>
-                  </div>
-                )}
+                  ) : (
+                    <div>
+                      <div className="relative text-5xl flex items-center justify-center object-center object-contain bg-gray2 rounded-[100%] h-[100px] w-[100px]">
+                        <ImUserPlus />
+                      </div>
+                      <div>
+                        <GoChevronDown />
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="relative">
                 <div
                   onClick={handleClickOpenNav}
-                  className="text-white cursor-pointer text-lg flex items-center gap-x-4"
+                  className="text-white cursor-pointer text-lg flex items-center gap-x-2 lg:gap-x-4"
                 >
-                  <p>
-                    {state?.firstname} {state?.lastname}
-                  </p>
+                  <p className="w-full">{state?.firstname}</p>
                   <div>
                     {openNav && <FaChevronUp />}
                     {!openNav && <FaChevronDown />}
                   </div>
                 </div>
                 {openNav && (
-                  <div className="bg-white text-black absolute right-0 w-[200px]  px-4 py-4 top-[3.2rem] shadow-md rounded-md">
+                  <div className="bg-white text-black absolute right-0 w-[200px]  px-4 py-4 top-[3.7rem] shadow-md rounded-md">
                     <Link href="/dashboard/profile" className="mb-3 block">
                       Profile
                     </Link>

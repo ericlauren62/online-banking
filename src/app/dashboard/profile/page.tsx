@@ -59,11 +59,11 @@ export default function Profile() {
   }, [state.profilepicture]);
 
   return (
-    <section className="max-w-[1200px] px-6 mx-auto py-16">
-      <div className="mb-10 flex items-center gap-x-8">
+    <section className="max-w-[1200px] px-6 mx-auto py-10 lg:py-16">
+      <div className="mb-10 lg:flex lg:items-center gap-x-8">
         <div
           onClick={handleImageClick}
-          className="h-[100px] w-[100px] border border-black rounded-[100%] relative overflow-hidden cursor-pointer"
+          className="mb-6 lg:mb-0 h-[100px] w-[100px] border border-black rounded-[100%] relative overflow-hidden cursor-pointer"
         >
           {img ? (
             <div>
