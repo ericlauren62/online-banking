@@ -4,7 +4,7 @@ import { auth, db } from "@/lib/firebase";
 import { Account, ChildrenType, Transaction, UserContextType, UserState } from "@/types/user";
 import { onAuthStateChanged } from "firebase/auth";
 import { arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 const initialState: UserState = {
   firstname: "",
@@ -62,9 +62,11 @@ const userReducer = (state: UserState, action: any): any => {
 
 export default function UserProvider({ children }: ChildrenType) {
   const [state, dispatch] = useReducer(userReducer, initialState);
+  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, async (user) => {
+      setUser(user);
       const accountId = localStorage.getItem("digit");
       if (user && accountId) {
         getUser(accountId);
@@ -76,8 +78,9 @@ export default function UserProvider({ children }: ChildrenType) {
     return () => {
       unSub();
     };
+
     //eslint-disable-next-line
-  }, []);
+  }, [user]);
 
   const getUser = async (accountId: string) => {
     const userDocRef = doc(db, "users", accountId);
