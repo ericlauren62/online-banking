@@ -127,9 +127,9 @@ export default function Transfer() {
   return (
     <section className="lg:container lg:flex lg:gap-x-10 lg:py-10  my-10">
       <div className=" py-5 px-6 bg-white lg:p-10 lg:w-[60%] mb-10 lg:mb-0">
-        <h2 className="text-xl font-medium mb-10 xl:mb-20">Transfers Details</h2>
+        <h2 className="text-xl font-medium mb-10 lg:mb-20">Transfers Details</h2>
         <form onSubmit={handleSubmit}>
-          <div className="grid gap-y-10 lg:gap-y-0 lg:grid-cols-2 items-center xl:gap-x-10 mb-8">
+          <div className="grid gap-y-10 lg:gap-y-0 lg:grid-cols-2 items-center lg:gap-x-10 mb-8">
             <div className="">
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">From*</label>
               <Select options={options} placeholder="Select An Account" onChange={handleChange} required />
@@ -146,7 +146,7 @@ export default function Transfer() {
               />
             </div>
           </div>
-          <div className="mb-8 flex items-center flex-col gap-y-10 xl:gap-y-0 xl:flex-row xl:gap-x-10">
+          <div className="mb-8 flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10">
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Beneficiary Bank*
@@ -174,7 +174,7 @@ export default function Transfer() {
               />
             </div>
           </div>
-          <div className="flex items-center flex-col gap-y-10 xl:gap-y-0 xl:flex-row xl:gap-x-10 mb-10">
+          <div className="flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10 mb-10">
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Bank Routing Number*
@@ -209,12 +209,12 @@ export default function Transfer() {
           </div>
           {/* Confirmation Modal */}
           <Modal open={open} onClose={onCloseModal} center>
-            <div className="py-10 px-10 w-[600px]">
+            <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
-                <h2 className="text-center font-bold text-xl mb-3">Review Transaction Details</h2>
+                <h2 className="text-center font-bold text-lg lg:text-xl mb-3">Review Transaction Details</h2>
                 <p className="text-blue text-center mb-10">Kindly review this transaction before proceeding</p>
               </div>
-              <div className="mb-10">
+              <div className="mb-10 text-sm lg:text-base">
                 <div className="flex mb-5 justify-between items-center">
                   <p className="font-bold text-blue">Amount</p>
                   <p>USD {transferDetails.amount}</p>
@@ -240,13 +240,13 @@ export default function Transfer() {
 
               <div className="mb-10">
                 <h3 className="mb-3 font-bold">Sending From</h3>
-                <div className="flex justify-between items-center bg-gray p-4">
+                <div className="flex justify-between items-center bg-gray p-4 text-sm lg:text-base">
                   <div className="flex items-center gap-x-2">
-                    <div className="bg-blue font-bold text-white p-2 rounded-[100%]">
+                    <div className="bg-blue font-bold text-white p-2 rounded-[100%] text-sm lg:text-base">
                       {extractFirstLetters(transferDetails.account)}
                     </div>
-                    <div className="text-sm ">
-                      <h3 className="text-lg">{capitalizeWords(transferDetails.account)}</h3>
+                    <div className="">
+                      <h3 className="lg:text-lg">{capitalizeWords(transferDetails.account)}</h3>
                     </div>
                   </div>
                   <div>
@@ -273,37 +273,37 @@ export default function Transfer() {
             </div>
           </Modal>
           <Modal open={success} onClose={onCloseSucessModal} center>
-            <div className="py-10 px-10 w-[600px]">
+            <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
                 <div className="flex justify-center mb-10">
                   <Image src={successImg} alt="success icon" height={100} />
                 </div>
-                <h2 className="text-center font-bold text-xl mb-10">Transaction Successful</h2>
+                <h2 className="text-center font-bold text-lg lg:text-xl mb-10">Transaction Successful</h2>
               </div>
-              <div className="mb-10">
+              <div className="mb-10 text-sm">
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Amount</strong>
-                  <p>USD {transferDetails.amount}</p>
+                  <strong className="text-blue w-full">Amount</strong>
+                  <p className="w-full flex justify-end">USD {transferDetails.amount}</p>
                 </div>
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Transaction Reference</strong>
-                  <p>{generateTransactionReference()}</p>
+                  <strong className="text-blue w-full">Transaction Reference</strong>
+                  <p className="w-full flex justify-end">{generateTransactionReference()}</p>
                 </div>
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Beneficiary Name</strong>
-                  <p>{transferDetails.beneficiaryname}</p>
+                  <strong className="text-blue w-full">Beneficiary Name</strong>
+                  <p className="w-full flex justify-end">{transferDetails.beneficiaryname}</p>
                 </div>
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Beneficiary Bank</strong>
-                  <p>{capitalizeWords(transferDetails.beneficiarybank)}</p>
+                  <strong className="text-blue w-full">Beneficiary Bank</strong>
+                  <p className="w-full flex justify-end">{capitalizeWords(transferDetails.beneficiarybank)}</p>
                 </div>
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Routing Number</strong>
-                  <p>{transferDetails.routingnumber}</p>
+                  <strong className="text-blue w-full">Routing Number</strong>
+                  <p className="w-full flex justify-end">{transferDetails.routingnumber}</p>
                 </div>
                 <div className="flex mb-5 justify-between items-center">
-                  <strong className="text-blue">Date</strong>
-                  <p>{getCurrentTimeFormatted()}</p>
+                  <strong className="text-blue w-full">Date</strong>
+                  <p className="w-full flex justify-end">{getCurrentTimeFormatted()}</p>
                 </div>
               </div>
 
@@ -322,7 +322,7 @@ export default function Transfer() {
         {transactions.map((transaction: Transaction, id) => {
           return (
             <div key={id} className="flex justify-between mb-6">
-              <div className="w-full ">
+              <div className="w-full">
                 <p className="text-lg font-medium">{capitalizeWords(transaction.name)}</p>
                 <div className="text-sm text-neutral-500">{capitalizeFirstLetter(transaction.date)}</div>
               </div>

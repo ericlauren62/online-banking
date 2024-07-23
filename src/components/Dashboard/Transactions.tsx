@@ -20,8 +20,17 @@ export default function Transactions() {
   const onCloseModal = () => setOpen(false);
 
   useEffect(() => {
+    // Sort transactions by date in descending order (most recent first)
     if (state?.transactions) {
-      setTransactions(state.transactions);
+      // Sort transactions by date in descending order (most recent first)
+      const sortedTransactions = [...state.transactions].sort(
+        (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+
+      // Slice to get only the last 10 transactions
+      const lastTenTransactions = sortedTransactions.slice(0, 10);
+
+      setTransactions(lastTenTransactions);
     }
   }, [state?.transactions]);
 
@@ -37,17 +46,19 @@ export default function Transactions() {
               onClick={() => onOpenModal(transaction)}
               className="bg-white group hover:bg-blue hover:text-white p-6 rounded-md  flex justify-between items-center mb-5"
             >
-              <div>
+              <div className="w-full">
                 <p className="text-lg font-medium">{capitalizeWords(transaction.name)}</p>
                 <div className="text-sm text-neutral-500 group-hover:text-white">
                   {capitalizeFirstLetter(transaction.date)}
                 </div>
               </div>
-              <div className="flex flex-col justify-end">
+              <div className="w-full flex flex-col justify-end">
                 <div className={`ml-auto ${transaction.type === "credit" ? "text-green-500" : "text-red-700"}`}>
                   {transaction.type === "credit" ? "+" : "-"}${transaction.amount}
                 </div>
-                <div className="text-sm text-neutral-500 group-hover:text-white">{transaction.account}</div>
+                <div className="text-sm text-neutral-500 flex justify-end group-hover:text-white">
+                  {transaction.account}
+                </div>
               </div>
             </div>
           );
@@ -55,7 +66,7 @@ export default function Transactions() {
       </div>
       <Modal open={open} onClose={onCloseModal}>
         {selectedTransaction && (
-          <div className="p-6 lg:w-[500px]">
+          <div className="py-5 px-2 text-sm lg:text-base lg:p-6 lg:w-[500px]">
             <div>
               <div className="mb-5">
                 <h2 className="font-medium m">Transaction Details</h2>
