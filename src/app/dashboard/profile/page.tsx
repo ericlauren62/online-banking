@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useLayoutEffect, useRef, useState } from "react
 import toast from "react-hot-toast";
 import { ImUserPlus } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
+import type { Metadata } from "next";
 
 export default function Profile() {
   const [img, setImg] = useState("");

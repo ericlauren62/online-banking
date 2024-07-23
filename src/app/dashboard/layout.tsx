@@ -105,7 +105,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 </div>
                 {openNav && (
-                  <div className="bg-white text-black absolute w-full right-0  px-4 py-4 top-10 rounded-md">
+                  <div className="bg-white text-black absolute right-0 w-[200px]  px-4 py-4 top-[3.2rem] shadow-md rounded-md">
+                    <Link href="/dashboard/profile" className="mb-3 block">
+                      Profile
+                    </Link>
+
                     <button onClick={handleLogout} className="flex items-center gap-x-3">
                       Log out{" "}
                       <span className="text-2xl">

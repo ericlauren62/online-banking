@@ -6,6 +6,13 @@ import SmallBusinessForthSection from "@/components/Smallbusiness/SmallBusinessF
 import SmallBusinessHero from "@/components/Smallbusiness/SmallBusinessHero";
 import SmallBusinessThirdSection from "@/components/Smallbusiness/SmallBusinessThirdSection";
 import MainLayout from "@/components/layouts/MainLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Small Business | First Horizon Bank",
+  description:
+    "First Horizon offers a variety of financial services nationwide. See how we serve our customers through personal, small business, commercial banking",
+};
 
 export default function SmallBusiness() {
   return (

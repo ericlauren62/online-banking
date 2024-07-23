@@ -16,6 +16,7 @@ import { generateTransactionReference } from "@/lib/generateTransactionReference
 import { getCurrentTimeFormatted } from "@/lib/currentTimeFormatted";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import type { Metadata } from "next";
 
 export default function Transfer() {
   const [outgoingAccount, setOutgoingAccount] = useState<any>({ value: "", amount: "" });
@@ -320,16 +321,16 @@ export default function Transfer() {
         <h2 className="text-xl font-medium mb-8">Recent Transactions</h2>
         {transactions.map((transaction: Transaction, id) => {
           return (
-            <div key={id} className="flex justify-between items-center mb-5">
-              <div>
+            <div key={id} className="flex justify-between mb-6">
+              <div className="w-full ">
                 <p className="text-lg font-medium">{capitalizeWords(transaction.name)}</p>
                 <div className="text-sm text-neutral-500">{capitalizeFirstLetter(transaction.date)}</div>
               </div>
-              <div className="flex flex-col justify-end">
-                <div className="ml-auto">
+              <div className="w-full flex flex-col justify-end">
+                <div className={`ml-auto ${transaction.type === "credit" ? "text-green-500" : "text-red-700"}`}>
                   {transaction.type === "credit" ? "+" : "-"}${transaction.amount}
                 </div>
-                <div className="text-sm text-neutral-500">{transaction.account}</div>
+                <div className="text-sm text-neutral-500 flex justify-end">{transaction.account}</div>
               </div>
             </div>
           );

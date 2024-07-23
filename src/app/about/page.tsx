@@ -7,6 +7,13 @@ import AboutSevenSection from "@/components/About/AboutSevenSection";
 import AboutSixSection from "@/components/About/AboutSixSection";
 import AboutThirdSection from "@/components/About/AboutThirdSection";
 import MainLayout from "@/components/layouts/MainLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | First Horizon Bank",
+  description:
+    "First Horizon offers a variety of financial services nationwide. See how we serve our customers through personal, small business, commercial banking",
+};
 
 export default function About() {
   return (

@@ -6,6 +6,13 @@ import WealthSecondSection from "@/components/Wealth/WealthSecondSection";
 import WealthServices from "@/components/Wealth/WealthServices";
 import WealthThirdSection from "@/components/Wealth/WealthThirdSection";
 import MainLayout from "@/components/layouts/MainLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wealth Management | First Horizon Bank",
+  description:
+    "First Horizon offers a variety of financial services nationwide. See how we serve our customers through personal, small business, commercial banking",
+};
 
 export default function Wealth() {
   return (

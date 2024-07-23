@@ -44,7 +44,7 @@ export default function Transactions() {
                 </div>
               </div>
               <div className="flex flex-col justify-end">
-                <div className="ml-auto">
+                <div className={`ml-auto ${transaction.type === "credit" ? "text-green-500" : "text-red-700"}`}>
                   {transaction.type === "credit" ? "+" : "-"}${transaction.amount}
                 </div>
                 <div className="text-sm text-neutral-500 group-hover:text-white">{transaction.account}</div>
@@ -61,24 +61,24 @@ export default function Transactions() {
                 <h2 className="font-medium m">Transaction Details</h2>
                 <hr />
               </div>
-              <div className="grid grid-cols-2 gap-y-2">
-                <strong className="block">Date:</strong>
+              <div className="grid grid-cols-2 gap-y-4">
+                <strong className="block mb-1">Date:</strong>
                 <span className="block">{selectedTransaction.date}</span>
               </div>
               <div className="grid grid-cols-2">
-                <strong>Reference:</strong>
+                <strong className="mb-1">Reference:</strong>
                 <span>{selectedTransaction.reference}</span>
               </div>
               <div className="grid grid-cols-2">
-                <strong>Amount:</strong>
-                <span>{selectedTransaction.amount}</span>
+                <strong className="mb-1">Amount:</strong>
+                <span>${selectedTransaction.amount}</span>
               </div>
               <div className="grid grid-cols-2">
-                <strong>Status:</strong>
+                <strong className="mb-1">Status:</strong>
                 <span>SUCCESSFUL</span>
               </div>
               <div className="grid grid-cols-2">
-                <strong>Transaction Type:</strong>
+                <strong className="mb-1">Transaction Type:</strong>
                 <span>{selectedTransaction.type}</span>
               </div>
 
@@ -88,17 +88,17 @@ export default function Transactions() {
                   <hr />
                 </div>
                 <div className="grid grid-cols-2">
-                  <strong>{"Sender's"} Name:</strong>
+                  <strong className="mb-1">{"Sender's"} Name:</strong>
                   <span>
                     {state.firstname} {state.lastname}
                   </span>
                 </div>
                 <div className="grid grid-cols-2">
-                  <strong>Beneficiary Name:</strong>
+                  <strong className="mb-1">Beneficiary Name:</strong>
                   <span>{selectedTransaction.name}</span>
                 </div>
                 <div className="grid grid-cols-2">
-                  <strong>Beneficiary Account:</strong>
+                  <strong className="mb-1">Beneficiary Account:</strong>
                   <span>{selectedTransaction.account}</span>
                 </div>
               </div>

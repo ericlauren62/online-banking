@@ -1,8 +1,13 @@
-"use client";
-
 import AccountType from "@/components/Dashboard/AccountType";
 import PaymentTools from "@/components/Dashboard/PaymentTools";
 import Transactions from "@/components/Dashboard/Transactions";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard | First Horizon Bank",
+  description:
+    "First Horizon offers a variety of financial services nationwide. See how we serve our customers through personal, small business, commercial banking",
+};
 
 export default function Dashboard() {
   return (
