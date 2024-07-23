@@ -10,6 +10,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { redirect, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const router = useRouter();
@@ -25,7 +26,11 @@ export default function Login() {
     if (userDocSnap.exists()) {
       const user = userDocSnap.data();
       const email = userDocSnap.data().email;
-      const userSession = await signInWithEmailAndPassword(auth, email, password);
+      const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, password), {
+        loading: "Verifying Credentials",
+        success: "Sign In Successfully, Welcome",
+        error: "Invalid User Credentials",
+      });
       localStorage.setItem("token", userSession.user.refreshToken);
       localStorage.setItem("digit", accountNumber);
       router.push("/dashboard");

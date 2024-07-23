@@ -1,7 +1,7 @@
 "use client";
 
 import { auth, db } from "@/lib/firebase";
-import { ChildrenType, Transaction, UserContextType, UserState } from "@/types/user";
+import { Account, ChildrenType, Transaction, UserContextType, UserState } from "@/types/user";
 import { onAuthStateChanged } from "firebase/auth";
 import { arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useReducer } from "react";
@@ -29,6 +29,7 @@ const UserContext = createContext<UserContextType>({
   state: initialState,
   addTransaction: () => null,
   updateProfilePicture: () => null,
+  updateAccount: () => null,
 });
 
 const userReducer = (state: UserState, action: any): any => {
@@ -51,6 +52,11 @@ const userReducer = (state: UserState, action: any): any => {
     case "UPDATE_PROFILE_PICTURE": {
       return { ...state, profilePicture: action.payload };
     }
+    case "UPDATE_ACCOUNT": {
+      return { ...state, accounts: action.payload };
+    }
+    default:
+      return state;
   }
 };
 
@@ -124,8 +130,30 @@ export default function UserProvider({ children }: ChildrenType) {
     }
   };
 
+  const updateAccount = async (accountType: string, amount: string) => {
+    if (accountType && state?.uid) {
+      try {
+        const userAccountRef = doc(db, "accounts", state?.uid);
+        const updateAccount = state.accounts.map((account: Account) => {
+          if (account.name === accountType) {
+            return { name: accountType, amount: amount };
+          }
+          return account;
+        });
+
+        console.log(updateAccount);
+        setDoc(userAccountRef, { accounts: updateAccount });
+        dispatch({ action: "UPDATE_ACCOUNT", payload: updateAccount });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ state, addTransaction, updateProfilePicture }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ state, addTransaction, updateProfilePicture, updateAccount }}>
+      {children}
+    </UserContext.Provider>
   );
 }
 

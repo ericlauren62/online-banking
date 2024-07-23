@@ -15,9 +15,10 @@ import { extractFirstLetters } from "@/lib/extractFirstLetters";
 import { generateTransactionReference } from "@/lib/generateTransactionReference";
 import { getCurrentTimeFormatted } from "@/lib/currentTimeFormatted";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function Transfer() {
-  const [outgoingAccount, setOutgoingAccount] = useState<any>(null);
+  const [outgoingAccount, setOutgoingAccount] = useState<any>({ value: "", amount: "" });
   const [processing, setProcessing] = useState(false);
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -34,15 +35,13 @@ export default function Transfer() {
   const [transferReference, setTransferReference] = useState("");
   const [transferDate, setTransferDate] = useState("");
 
-  const { state, addTransaction } = useUserContext();
+  const { state, addTransaction, updateAccount } = useUserContext();
 
   const router = useRouter();
 
   const options = state?.accounts?.map((account: Account) => {
     return { value: account.name, label: capitalizeWords(account.name), amount: account.amount };
   });
-
-  console.log(state);
 
   useEffect(() => {
     // Sort transactions by date in descending order (most recent first)
@@ -68,6 +67,7 @@ export default function Transfer() {
       transferDetails.routingnumber.length < 9 ||
       transferDetails.account === ""
     ) {
+      toast.error("Empty Field or Incomplete Routing or Account Number");
       return;
     }
 
@@ -78,8 +78,18 @@ export default function Transfer() {
   };
   const onCloseModal = () => setOpen(false);
   const onOpenSucessModal = () => setSuccess(true);
-  const onCloseSucessModal = () => setSuccess(false);
-
+  const onCloseSucessModal = () => {
+    setTransferDetails({
+      account: "",
+      amount: "",
+      beneficiarybank: "",
+      beneficiaryname: "",
+      beneficiaryaccount: "",
+      routingnumber: "",
+    });
+    setOutgoingAccount(null);
+    setSuccess(false);
+  };
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
@@ -102,6 +112,8 @@ export default function Transfer() {
         reference: transferReference,
         account: transferDetails.account,
       });
+      const updatedBalance = `${Number(outgoingAccount.amount) - Number(transferDetails.amount)}`;
+      updateAccount(transferDetails.account, updatedBalance);
 
       onOpenSucessModal();
     }, 5000);

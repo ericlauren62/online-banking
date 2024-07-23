@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import redSailImg from "/public/sail-red.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export default function Hero() {
 
   const router = useRouter();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: e.target.value }));
   };
@@ -37,10 +37,10 @@ export default function Hero() {
       const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, formData.password), {
         loading: "Verifying Credentials",
         success: "Sign In Successfully, Welcome",
-        error: "Error when fetching",
+        error: "Invalid User Credentials",
       });
 
-      localStorage.setItem("token", userSession?.user?.accessToken);
+      localStorage.setItem("token", userSession?.user?.refreshToken);
       localStorage.setItem("digit", formData.userid);
       router.push("/dashboard");
       return;

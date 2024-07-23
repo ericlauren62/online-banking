@@ -35,6 +35,7 @@ export interface UserContextType {
   state: UserState;
   addTransaction: (payload: Transaction) => void;
   updateProfilePicture: (imgurl: string) => void;
+  updateAccount: (account: string, amount: string) => void;
 }
 
 export interface ChildrenType {
