@@ -3,6 +3,7 @@
 import { useUserContext } from "@/context/UserContext";
 import { capitalizeWords } from "@/lib/capitalizeWords";
 import { extractFirstLetters } from "@/lib/extractFirstLetters";
+import { addCommas } from "@/lib/formatAmount";
 import { Account } from "@/types/user";
 import { useEffect, useState } from "react";
 
@@ -30,7 +31,7 @@ export default function AccountType() {
                 </div>
               </div>
               <div>
-                <p className="font-medium mb-1">${account?.amount}</p>
+                <p className="font-medium mb-1">${addCommas(account?.amount)}</p>
                 <div className="text-sm">Available Balance</div>
               </div>
             </div>
