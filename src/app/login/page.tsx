@@ -11,13 +11,6 @@ import { auth, db } from "@/lib/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { redirect, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Login | First Horizon Bank",
-  description:
-    "First Horizon offers a variety of financial services nationwide. See how we serve our customers through personal, small business, commercial banking",
-};
 
 export default function Login() {
   const router = useRouter();
