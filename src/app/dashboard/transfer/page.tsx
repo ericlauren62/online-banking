@@ -75,6 +75,11 @@ export default function Transfer() {
       return;
     }
 
+    if (Number(transferDetails.amount) > 30000) {
+      toast.error("Maximum limit Per Day is 30,000");
+      return;
+    }
+
     setOpen(true);
     setProcessing(false);
     setTransferReference(generateTransactionReference());
