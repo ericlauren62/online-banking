@@ -3,6 +3,7 @@
 import { useUserContext } from "@/context/UserContext";
 import { capitalizeFirstLetter } from "@/lib/capitalize";
 import { capitalizeWords } from "@/lib/capitalizeWords";
+import { addCommas } from "@/lib/formatAmount";
 import { Transaction } from "@/types/user";
 import { useEffect, useState } from "react";
 import { Modal } from "react-responsive-modal";
@@ -54,7 +55,7 @@ export default function Transactions() {
               </div>
               <div className="w-full flex flex-col justify-end">
                 <div className={`ml-auto ${transaction.type === "credit" ? "text-green-500" : "text-red-700"}`}>
-                  {transaction.type === "credit" ? "+" : "-"}${transaction.amount}
+                  {transaction.type === "credit" ? "+" : "-"}${addCommas(transaction.amount)}
                 </div>
                 <div className="text-sm text-neutral-500 flex justify-end group-hover:text-white">
                   {transaction.account}
@@ -82,7 +83,7 @@ export default function Transactions() {
               </div>
               <div className="grid grid-cols-2">
                 <strong className="mb-1">Amount:</strong>
-                <span>${selectedTransaction.amount}</span>
+                <span className="tracking-widest">${addCommas(selectedTransaction.amount)}</span>
               </div>
               <div className="grid grid-cols-2">
                 <strong className="mb-1">Status:</strong>

@@ -17,9 +17,12 @@ import { getCurrentTimeFormatted } from "@/lib/currentTimeFormatted";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import type { Metadata } from "next";
+import { banks } from "@/lib/data";
+import { addCommas } from "@/lib/formatAmount";
 
 export default function Transfer() {
   const [outgoingAccount, setOutgoingAccount] = useState<any>({ value: "", amount: "" });
+  const [outgoingBank, setOutgoingBank] = useState<any>({ value: "", amount: "" });
   const [processing, setProcessing] = useState(false);
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -100,6 +103,11 @@ export default function Transfer() {
     setTransferDetails({ ...transferDetails, account: outgoingAccount.value });
   };
 
+  const handleChangeBank = (outgoingBank: any) => {
+    setOutgoingBank(outgoingBank);
+    setTransferDetails({ ...transferDetails, beneficiarybank: outgoingBank.value });
+  };
+
   const handleConfirmPayment = () => {
     setProcessing(true);
     setTimeout(() => {
@@ -135,31 +143,13 @@ export default function Transfer() {
               <Select options={options} placeholder="Select An Account" onChange={handleChange} required />
             </div>
             <div>
-              <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">Amount*</label>
-              <input
-                type="text"
-                className="w-full px-5 h-[50px] rounded-md rounded-tl-none border border-gray2"
-                placeholder="Enter Amount"
-                required
-                value={transferDetails.amount}
-                onChange={(e) => setTransferDetails({ ...transferDetails, amount: e.target.value })}
-              />
-            </div>
-          </div>
-          <div className="mb-8 flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10">
-            <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Beneficiary Bank*
               </label>
-              <input
-                type="text"
-                className="w-full px-5 h-[50px] rounded-md border border-gray2 rounded-tl-none"
-                placeholder="Enter Bank Name"
-                required
-                value={transferDetails.beneficiarybank}
-                onChange={(e) => setTransferDetails({ ...transferDetails, beneficiarybank: e.target.value })}
-              />
+              <Select options={banks} placeholder="Select Bank" onChange={handleChangeBank} required />
             </div>
+          </div>
+          <div className="mb-8 flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10">
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Beneficiary Name*
@@ -173,21 +163,6 @@ export default function Transfer() {
                 onChange={(e) => setTransferDetails({ ...transferDetails, beneficiaryname: e.target.value })}
               />
             </div>
-          </div>
-          <div className="flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10 mb-10">
-            <div>
-              <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
-                Bank Routing Number*
-              </label>
-              <input
-                type="text"
-                className="w-full px-5 h-[50px] rounded-md border border-gray2 rounded-tl-none"
-                placeholder="Enter Routing Number"
-                required
-                value={transferDetails.routingnumber}
-                onChange={(e) => setTransferDetails({ ...transferDetails, routingnumber: e.target.value })}
-              />
-            </div>
             <div>
               <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
                 Account Number*
@@ -199,6 +174,34 @@ export default function Transfer() {
                 required
                 value={transferDetails.beneficiaryaccount}
                 onChange={(e) => setTransferDetails({ ...transferDetails, beneficiaryaccount: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="flex items-center flex-col gap-y-10 lg:gap-y-0 lg:flex-row lg:gap-x-10 mb-10">
+            <div>
+              <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">Amount*</label>
+              <input
+                type="text"
+                className="w-full px-5 h-[50px] rounded-md rounded-tl-none border border-gray2"
+                placeholder="Enter Amount"
+                required
+                value={transferDetails.amount}
+                onChange={(e) =>
+                  setTransferDetails({ ...transferDetails, amount: e.target.value.replace(/[^0-9]/g, "") })
+                }
+              />
+            </div>
+            <div>
+              <label className="bg-blue text-white px-5 py-2 rounded-tr-md rounded-tl-md inline-block">
+                Bank Routing Number*
+              </label>
+              <input
+                type="text"
+                className="w-full px-5 h-[50px] rounded-md border border-gray2 rounded-tl-none"
+                placeholder="Enter Routing Number"
+                required
+                value={transferDetails.routingnumber}
+                onChange={(e) => setTransferDetails({ ...transferDetails, routingnumber: e.target.value })}
               />
             </div>
           </div>
@@ -328,7 +331,7 @@ export default function Transfer() {
               </div>
               <div className="w-full flex flex-col justify-end">
                 <div className={`ml-auto ${transaction.type === "credit" ? "text-green-500" : "text-red-700"}`}>
-                  {transaction.type === "credit" ? "+" : "-"}${transaction.amount}
+                  {transaction.type === "credit" ? "+" : "-"}${addCommas(transaction.amount)}
                 </div>
                 <div className="text-sm text-neutral-500 flex justify-end">{transaction.account}</div>
               </div>

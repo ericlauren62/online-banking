@@ -143,10 +143,8 @@ export default function UserProvider({ children }: ChildrenType) {
           }
           return account;
         });
-
-        console.log(updateAccount);
         setDoc(userAccountRef, { accounts: updateAccount });
-        dispatch({ action: "UPDATE_ACCOUNT", payload: updateAccount });
+        dispatch({ type: "UPDATE_ACCOUNT", payload: updateAccount });
       } catch (error) {
         console.log(error);
       }
