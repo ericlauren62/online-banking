@@ -327,17 +327,23 @@ export default function Transfer() {
 
           {/* Suspension Modal */}
           <Modal open={open} onClose={onCloseModal} center>
-            <div className="max-w-[400px] text-center py-10 px-3">
+            <div className="max-w-[400px] text-center py-10 px-3 text-black">
               <div>
                 <div className="flex justify-center mb-6">
                   <Image src={errorImg} alt="success icon" height={100} />
                 </div>
                 <h2 className="text-center font-bold text-lg lg:text-3xl mb-6">Error</h2>
-                <p className="text-lg font-medium">
+                <p className="text-base mb-8">
                   Your account has been suspended from making transfers. To resolve this issue, please get in touch with
-                  our support team.
+                  <span className="text-blue"> our support team.</span>
                 </p>
               </div>
+              <button
+                onClick={handleBackHome}
+                className="bg-blue flex items-center justify-center font-medium text-white rounded-md h-[45px] w-full"
+              >
+                Back Home
+              </button>
             </div>
           </Modal>
         </form>
