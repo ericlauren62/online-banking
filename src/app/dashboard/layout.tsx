@@ -15,6 +15,7 @@ import { GoChevronDown } from "react-icons/go";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { auth } from "@/lib/firebase";
+import Marquee from "react-fast-marquee";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -140,7 +141,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </li>
         </ul>
       </header>
-      <main>{children}</main>
+      <main>
+        <Marquee>
+          <p className="text-red-500 py-3 font-medium">
+            Your Account has been Suspended, Please get in touch with our customer service
+          </p>
+        </Marquee>
+        {children}
+      </main>
     </>
   );
 }
