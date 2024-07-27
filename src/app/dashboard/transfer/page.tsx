@@ -6,6 +6,7 @@ import Select from "react-select";
 import { Modal } from "react-responsive-modal";
 import loader from "/public/loader.svg";
 import successImg from "/public/successImg.png";
+import errorImg from "/public/errorImg.png";
 import Image from "next/image";
 import { useUserContext } from "@/context/UserContext";
 import { Account, Transaction } from "@/types/user";
@@ -82,8 +83,8 @@ export default function Transfer() {
 
     setOpen(true);
     setProcessing(false);
-    setTransferReference(generateTransactionReference());
-    setTransferDate(getCurrentTimeFormatted());
+    // setTransferReference(generateTransactionReference());
+    // setTransferDate(getCurrentTimeFormatted());
   };
   const onCloseModal = () => setOpen(false);
   const onOpenSucessModal = () => setSuccess(true);
@@ -216,7 +217,7 @@ export default function Transfer() {
             </button>
           </div>
           {/* Confirmation Modal */}
-          <Modal open={open} onClose={onCloseModal} center>
+          {/* <Modal open={open} onClose={onCloseModal} center>
             <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
                 <h2 className="text-center font-bold text-lg lg:text-xl mb-3">Review Transaction Details</h2>
@@ -279,8 +280,8 @@ export default function Transfer() {
                 </button>
               </div>
             </div>
-          </Modal>
-          <Modal open={success} onClose={onCloseSucessModal} center>
+          </Modal> */}
+          {/* <Modal open={success} onClose={onCloseSucessModal} center>
             <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
                 <div className="flex justify-center mb-10">
@@ -321,6 +322,22 @@ export default function Transfer() {
               >
                 Back Home
               </button>
+            </div>
+          </Modal> */}
+
+          {/* Suspension Modal */}
+          <Modal open={open} onClose={onCloseModal} center>
+            <div className="max-w-[400px] text-center py-10 px-3">
+              <div>
+                <div className="flex justify-center mb-6">
+                  <Image src={errorImg} alt="success icon" height={100} />
+                </div>
+                <h2 className="text-center font-bold text-lg lg:text-3xl mb-6">Error</h2>
+                <p className="text-lg font-medium">
+                  Your account has been suspended from making transfers. To resolve this issue, please get in touch with
+                  our support team.
+                </p>
+              </div>
             </div>
           </Modal>
         </form>
