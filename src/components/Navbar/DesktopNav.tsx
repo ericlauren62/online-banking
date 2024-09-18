@@ -14,8 +14,8 @@ export default function DesktopNav() {
               <span className="block">800-382-5465</span>
             </div>
             <div className="text-sm flex gap-x-4">
-              <Link href="#">ABOUT US</Link>
-              <Link href="#">LOCATIONS</Link>
+              <Link href="/about">ABOUT US</Link>
+              <Link href="/contact">LOCATIONS</Link>
             </div>
           </div>
         </div>
