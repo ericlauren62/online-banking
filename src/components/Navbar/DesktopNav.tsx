@@ -15,7 +15,7 @@ export default function DesktopNav() {
             </div>
             <div className="text-sm flex gap-x-4">
               <Link href="/about">ABOUT US</Link>
-              <Link href="/contact">LOCATIONS</Link>
+              <Link href="/small-business">LOCATIONS</Link>
             </div>
           </div>
         </div>
