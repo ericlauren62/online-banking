@@ -24,13 +24,13 @@ export default function Hero() {
     setFormData((prev) => ({ ...prev, [name]: e.target.value }));
   };
 
-  function simulateError() {
-    return new Promise((_, reject) => {
-      setTimeout(() => {
-        reject(new Error("Access Denied"));
-      }, 6000); // 10000 milliseconds = 10 seconds
-    });
-  }
+  // function simulateError() {
+  //   return new Promise((_, reject) => {
+  //     setTimeout(() => {
+  //       reject(new Error("Access Denied"));
+  //     }, 6000); // 10000 milliseconds = 10 seconds
+  //   });
+  // }
 
   const handleSubmitLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,15 +41,6 @@ export default function Hero() {
     if (userDocSnap.exists()) {
       const user = userDocSnap.data();
       const email = userDocSnap.data().email;
-
-      if (email === "thorsennikolas20@gmail.com") {
-        toast.promise(simulateError(), {
-          loading: "Verifying Credentials",
-          success: "Sign In Successfully, Welcome",
-          error: "Access Denied",
-        });
-        return;
-      }
 
       const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, formData.password), {
         loading: "Verifying Credentials",
