@@ -83,8 +83,8 @@ export default function Transfer() {
 
     setOpen(true);
     setProcessing(false);
-    // setTransferReference(generateTransactionReference());
-    // setTransferDate(getCurrentTimeFormatted());
+    setTransferReference(generateTransactionReference());
+    setTransferDate(getCurrentTimeFormatted());
   };
   const onCloseModal = () => setOpen(false);
   const onOpenSucessModal = () => setSuccess(true);
