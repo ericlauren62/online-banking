@@ -35,25 +35,26 @@ export default function Hero() {
   const handleSubmitLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const userDocRef = doc(db, "users", formData.userid);
-    const userDocSnap = await getDoc(userDocRef);
+    // const userDocRef = doc(db, "users", formData.userid);
+    // const userDocSnap = await getDoc(userDocRef);
 
-    if (userDocSnap.exists()) {
-      const user = userDocSnap.data();
-      const email = userDocSnap.data().email;
+    // if (userDocSnap.exists()) {
+    //   const user = userDocSnap.data();
+    //   const email = userDocSnap.data().email;
 
-      const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, formData.password), {
-        loading: "Verifying Credentials",
-        success: "Sign In Successfully, Welcome",
-        error: "Invalid User Credentials",
-      });
+    //   const userSession = await toast.promise(signInWithEmailAndPassword(auth, email, formData.password), {
+    //     loading: "Verifying Credentials",
+    //     success: "Sign In Successfully, Welcome",
+    //     error: "Invalid User Credentials",
+    //   });
 
-      localStorage.setItem("token", userSession?.user?.refreshToken);
-      localStorage.setItem("digit", formData.userid);
-      router.push("/dashboard");
-      return;
-    }
+    //   localStorage.setItem("token", userSession?.user?.refreshToken);
+    //   localStorage.setItem("digit", formData.userid);
+    //   router.push("/dashboard");
+    //   return;
+    // }
     toast.error("Invalid User Credentials");
+    return;
   };
 
   return (
