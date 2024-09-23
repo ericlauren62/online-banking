@@ -217,7 +217,7 @@ export default function Transfer() {
             </button>
           </div>
           {/* Confirmation Modal */}
-          {/* <Modal open={open} onClose={onCloseModal} center>
+          <Modal open={open} onClose={onCloseModal} center>
             <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
                 <h2 className="text-center font-bold text-lg lg:text-xl mb-3">Review Transaction Details</h2>
@@ -280,8 +280,8 @@ export default function Transfer() {
                 </button>
               </div>
             </div>
-          </Modal> */}
-          {/* <Modal open={success} onClose={onCloseSucessModal} center>
+          </Modal>
+          <Modal open={success} onClose={onCloseSucessModal} center>
             <div className="py-10 lg:px-10 lg:w-[600px]">
               <div>
                 <div className="flex justify-center mb-10">
@@ -323,10 +323,10 @@ export default function Transfer() {
                 Back Home
               </button>
             </div>
-          </Modal> */}
+          </Modal>
 
           {/* Suspension Modal */}
-          <Modal open={open} onClose={onCloseModal} center>
+          {/* <Modal open={open} onClose={onCloseModal} center>
             <div className="max-w-[400px] text-center py-10 px-3 text-black">
               <div>
                 <div className="flex justify-center mb-6">
@@ -345,7 +345,7 @@ export default function Transfer() {
                 Back Home
               </button>
             </div>
-          </Modal>
+          </Modal> */}
         </form>
       </div>
       <div className="bg-white lg:w-[40%] py-8 px-8 overflow-y-scroll">

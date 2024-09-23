@@ -2,6 +2,7 @@ export const banks = [
   { value: "HSBC", label: "HSBC" },
   { value: "Citibank", label: "Citibank" },
   { value: "Chase Bank", label: "Chase Bank" },
+  { value: "Sberbank", label: "SberBank" },
   { value: "Bank Of America", label: "Bank Of America" },
   { value: "Standard Chartered", label: "Standard Chartered" },
   { value: "BNP Paribas", label: "BNP Paribas" },
